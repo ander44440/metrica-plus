@@ -1,0 +1,218 @@
+/* ===== BASE ===== */
+
+body{
+  margin:0;
+  font-family:Segoe UI, Arial;
+  background:#a1a4a7;
+  color:#2a6743;
+}
+
+/* ===== CONTAINER ===== */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+/* ===== INPUTS ===== */
+
+input, select, button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+input, select{
+  padding:10px;
+  border-radius:6px;
+  border:none;
+  background:#16294a;
+  color:white;
+}
+
+/* ===== BOTÕES ===== */
+
+button{
+  padding:10px 16px;
+  background:#2a6743;
+  border:none;
+  border-radius:6px;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+button:hover{
+  background:#3ab378;
+}
+
+/* ===== LAYOUT ===== */
+
+.app{
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+
+/* ===== SIDEBAR (mobile escondida) ===== */
+
+.sidebar{
+  display:none;
+  flex-direction:column;
+  background:#061a35;
+  width:0px;
+  padding:20px;
+  position:fixed;
+  top:0;
+  left:0;
+  height:100vh;
+  overflow-y:auto;
+}
+
+.sidebar button{
+  background:none;
+  border:none;
+  color:white;
+  padding:10px;
+  text-align:left;
+  cursor:pointer;
+  border-radius:6px;
+  font-size:12px;
+  transition:0.2s;
+}
+
+.sidebar button:hover{
+  background:#1a3a6d;
+  color:#3ab378;
+}
+
+/* ===== CONTEÚDO ===== */
+
+.conteudo{
+  flex:1;
+  padding:20px;
+  overflow:auto;
+  padding-bottom:90px;
+}
+
+/* ===== CARDS ===== */
+
+.card{
+  background:#101f3a;
+  color:white;
+  padding:20px;
+  border-radius:10px;
+  margin:10px 0;
+  width:100%;
+  cursor:pointer;
+  border:1px solid #4c6b59;
+  text-align:center;
+  transition:0.25s;
+}
+
+.card:hover{
+  transform:scale(1.02);
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+.card h3{
+  margin-top:10px;
+  font-size:16px;
+}
+
+/* ===== RESULTADOS ===== */
+
+h3{
+  color:#d8bb29;
+}
+
+/* ===== MENU MOBILE ===== */
+
+.menuMobile{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:65px;
+  background:#0e3268;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  border-top:2px solid #3ab378;
+  z-index:999;
+}
+
+.menuMobile button{
+  background:none;
+  border:none;
+  color:white;
+  font-size:22px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.menuMobile button:hover{
+  color:#3ab378;
+  transform:scale(1.1);
+}
+
+/* ===== MOBILE ===== */
+
+
+
+
+  .logoHome{
+    display:block;
+    margin:auto;
+    margin-top:60px;
+    width:150px;
+  }
+
+  .conteudo{
+    margin-left:0;
+  }
+
+
+
+/* ===== DESKTOP ===== */
+
+@media (max-width: 768px){
+
+  /* ESCONDE TEXTO */
+  .homeTexto{
+    display:none;
+  }
+
+  /* LOGO NO TOPO */
+  .logoHome{
+    display:block;
+    margin:auto;
+    margin-top:20px;
+    width:140px;
+  }
+
+  /* ORGANIZA OS MÓDULOS */
+  .homeModulos{
+    display:flex;
+    flex-direction:column;
+    padding:10px;
+    margin-top:10px;
+  }
+
+  /* CARDS BONITOS */
+  .card{
+    width:90%;
+    margin:8px 0;
+  }
+
+  /* GARANTE ESPAÇO PRO MENU */
+  .conteudo{
+    padding-bottom:60px;
+  }
+
+}
