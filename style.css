@@ -7,6 +7,10 @@ body{
   color:#2a6743;
 }
 
+header {
+  background: #2b2a7e;
+}
+
 /* ===== CONTAINER ===== */
 
 .container {
