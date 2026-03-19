@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Métrica+ | Ferramentas Técnicas</title>
-
+<title>Métrica+ TESTE A</title>
 <link rel="stylesheet" href="style.css">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <link rel="manifest" href="manifest.json">
-
 </head>
 
 <body>
 
+<!-- MENU MOBILE -->
 <div class="menuMobile">
 
 <button onclick="abrirModulo('home')">
@@ -45,56 +43,41 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <div class="app">
 
-  <div class="sidebar">
-
-    <!-- LOGO MOBILE -->
-    <div class="logoMobile">
-      <img src="img/logo-metrica.png" alt="Logo">
-    </div>
-
-    <!-- BOTÕES -->
-    <button onclick="abrirModulo('temperatura')">Temperatura</button>
-    <button onclick="abrirModulo('btu')">BTU ↔ W</button>
-    <button onclick="abrirModulo('deltaT')">Delta T</button>
-    <button onclick="abrirModulo('pressao')">Pressão</button>
-    <button onclick="abrirModulo('tempo')">Tempo</button>
-    <button onclick="abrirModulo('superheat')">Superaquecimento</button>
-    <button onclick="abrirModulo('subcool')">Sub-resfriamento</button>
-    <button onclick="abrirModulo('tabelaPT')">Tabela PT</button>
-    <button onclick="abrirModulo('diagnostico')">Diagnóstico</button>
-    <button onclick="abrirModulo('diagnosticoAvancado')">Diagnóstico Avançado</button>
-    <button onclick="abrirModulo('eletrica')">Ferramentas Elétricas</button>
-    <button onclick="abrirModulo('home')">⬅ Painel</button>
-  </div>
-
 <div class="conteudo">
 
 <div id="modulo" class="homeAtiva">
-  
+
+<div class="homeTela">
+
 <img src="img/logo-metrica.png" class="logoHome">
 
-<div class="homeTexto">
-  <h1>Métrica+</h1>
-  <p>Ferramentas para técnicos de Refrigeração e Elétrica</p>
+<div class="boasVindasBox">
+<h2>Painel Técnico</h2>
+<p>Olá, Técnico.<br>Estou aqui para facilitar o seu trabalho.</p>
+
+<div class="barra-loading">
+<div class="progresso-loading"></div>
 </div>
 
 </div>
 
 </div>
 
+</div>
 
+</div>
+
+</div>
 
 <script src="js/conversores.js"></script>
 <script src="js/refrigeracao.js"></script>
 <script src="js/eletrica.js"></script>
 <script src="js/diagnostico.js"></script>
 <script src="js/app.js"></script>
-<script>
 
+<script>
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js")
-    .then(() => console.log("Service Worker registrado"))
-    .catch((erro) => console.log("Erro:", erro));
+navigator.serviceWorker.register("service-worker.js");
 }
 </script>
 

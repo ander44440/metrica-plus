@@ -1,4 +1,4 @@
-const CACHE_NAME = "metrica-v2";
+const CACHE_NAME = "metrica-v4";
 
 const urlsToCache = [
 "/",

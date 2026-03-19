@@ -45,3 +45,29 @@ let v = document.getElementById("valorTempo").value;
 document.getElementById("resultadoTempo").innerHTML =
 (v / 60).toFixed(2) + " horas";
 }
+
+function cParaF2() {
+  const valor = parseFloat(document.getElementById("valorTemp").value);
+  const saida = document.getElementById("resultadoTemp");
+
+  if (isNaN(valor)) {
+    saida.innerHTML = "Digite um valor válido.";
+    return;
+  }
+
+  const resultado = (valor * 9/5) + 32;
+  saida.innerHTML = `${valor} °C = ${resultado.toFixed(2)} °F`;
+}
+
+function fParaC2() {
+  const valor = parseFloat(document.getElementById("valorTemp").value);
+  const saida = document.getElementById("resultadoTemp");
+
+  if (isNaN(valor)) {
+    saida.innerHTML = "Digite um valor válido.";
+    return;
+  }
+
+  const resultado = (valor - 32) * 5/9;
+  saida.innerHTML = `${valor} °F = ${resultado.toFixed(2)} °C`;
+}
