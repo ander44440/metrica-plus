@@ -1,5 +1,4 @@
 function calcularOhmCompleto() {
-    // Capturamos os valores e usamos !isNaN para verificar se foram preenchidos
     const vInput = document.getElementById("vOhm").value;
     const iInput = document.getElementById("iOhm").value;
     const rInput = document.getElementById("rOhm").value;
@@ -12,27 +11,61 @@ function calcularOhmCompleto() {
 
     const res = document.getElementById("resultadoOhmWheel");
 
-    // Lógica para cobrir as principais combinações da Lei de Ohm
     if (V !== null && I !== null) {
+        if (I === 0) {
+            res.innerHTML = "Valor inválido. Corrente não pode ser zero.";
+            return;
+        }
         R = V / I;
         P = V * I;
+
     } else if (V !== null && R !== null) {
+        if (R === 0) {
+            res.innerHTML = "Valor inválido. Resistência não pode ser zero.";
+            return;
+        }
         I = V / R;
         P = (V * V) / R;
+
     } else if (I !== null && R !== null) {
         V = I * R;
         P = (I * I) * R;
+
     } else if (P !== null && V !== null) {
+        if (V === 0) {
+            res.innerHTML = "Valor inválido. Tensão não pode ser zero.";
+            return;
+        }
         I = P / V;
         R = (V * V) / P;
+
     } else if (P !== null && I !== null) {
+        if (I === 0) {
+            res.innerHTML = "Valor inválido. Corrente não pode ser zero.";
+            return;
+        }
         V = P / I;
         R = P / (I * I);
+
     } else if (P !== null && R !== null) {
+        if (P < 0 || R <= 0) {
+            res.innerHTML = "Valor inválido. Verifique potência e resistência.";
+            return;
+        }
         V = Math.sqrt(P * R);
         I = Math.sqrt(P / R);
+
     } else {
         res.innerHTML = "Por favor, preencha pelo menos dois valores.";
+        return;
+    }
+
+    if (
+        V === null || I === null || R === null || P === null ||
+        !isFinite(V) || !isFinite(I) || !isFinite(R) || !isFinite(P) ||
+        isNaN(V) || isNaN(I) || isNaN(R) || isNaN(P)
+    ) {
+        res.innerHTML = "Valor inválido. Verifique os dados informados.";
         return;
     }
 
@@ -43,18 +76,4 @@ function calcularOhmCompleto() {
         Resistência: ${R.toFixed(2)} Ω<br>
         Potência: ${P.toFixed(2)} W
     `;
-}
-
-function calcularConsumo() {
-    const pot = parseFloat(document.getElementById("potencia").value);
-    const hrs = parseFloat(document.getElementById("horas").value);
-    const res = document.getElementById("resultadoConsumo");
-
-    if (isNaN(pot) || isNaN(hrs)) {
-        res.innerHTML = "Preencha os valores corretamente.";
-        return;
-    }
-
-    const consumo = (pot * hrs) / 1000;
-    res.innerHTML = `Consumo: <strong>${consumo.toFixed(2)} kWh</strong>`;
 }

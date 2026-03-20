@@ -1,85 +1,107 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Métrica+ TESTE A</title>
 
-<title>Métrica+ TESTE A</title>
-<link rel="stylesheet" href="style.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
 
-<!-- MENU MOBILE -->
-<div class="menuMobile">
+  <!-- TOPO MOBILE -->
+  <header class="topoMobile">
+    <button class="btnMenuTopo" onclick="abrirMenuLateral()">
+      <i class="fa-solid fa-bars"></i>
+    </button>
 
-<button onclick="abrirModulo('home')">
-<i class="fa-solid fa-house"></i>
-</button>
+    <div class="marcaTopo">
+      <img src="img/logo-metrica.png" class="logoTopo" alt="Métrica+">
+      <div class="textoTopo">
+        <strong>Métrica+</strong>
+        <span>Ferramenta Técnica</span>
+      </div>
+    </div>
 
-<button onclick="abrirModulo('temperatura')">
-<i class="fa-solid fa-temperature-half"></i>
-</button>
+    <button class="btnTopoDireita">
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+    </button>
+  </header>
 
-<button onclick="abrirModulo('btu')">
-<i class="fa-solid fa-snowflake"></i>
-</button>
+  <!-- OVERLAY -->
+  <div class="overlayMenu" id="overlayMenu" onclick="fecharMenuLateral()"></div>
 
-<button onclick="abrirModulo('eletrica')">
-<i class="fa-solid fa-bolt"></i>
-</button>
+  <!-- MENU LATERAL -->
+  <aside class="menuLateral" id="menuLateral">
+    <div class="topoMenuLateral">
+      <button class="btnFecharMenu" onclick="fecharMenuLateral()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
 
-<button onclick="abrirModulo('diagnosticoAvancado')">
-<i class="fa-solid fa-stethoscope"></i>
-</button>
+      <div class="marcaTopo">
+        <img src="img/logo-metrica.png" class="logoTopo" alt="Métrica+">
+        <div class="textoTopo">
+          <strong>Métrica+</strong>
+          <span>Ferramenta Técnica</span>
+        </div>
+      </div>
+    </div>
 
-</div>
+    <div class="grupoMenuLateral">
+      <p class="tituloGrupoMenu">Ferramentas</p>
 
-<div class="app">
+      <button onclick="navegarModulo('home')">🏠 Home</button>
+      <button onclick="navegarModulo('temperatura')">🌡 Temperatura</button>
+      <button onclick="navegarModulo('btu')">❄ BTU ↔ W</button>
+      <button onclick="navegarModulo('pressao')">📊 Pressão</button>
+      <button onclick="navegarModulo('eletrica')">⚡ Elétrica</button>
+      <button onclick="navegarModulo('deltaT')">📉 Delta T</button>
+      <button onclick="navegarModulo('superheat')">🔥 Superheat</button>
+      <button onclick="navegarModulo('subcool')">❄ Subcool</button>
+      <button onclick="navegarModulo('tempo')">⏱ Tempo</button>
+      <button onclick="navegarModulo('tabelaPT')">📘 Tabela PT</button>
+      <button onclick="navegarModulo('diagnostico')">🧠 Diagnóstico</button>
+      <button onclick="navegarModulo('diagnosticoAvancado')">🚀 Diagnóstico Avançado</button>
+    </div>
+  </aside>
 
-<div class="conteudo">
+  <!-- MENU ANTIGO -->
+  <div class="menuMobile">
+    <button onclick="abrirModulo('home')">
+      <i class="fa-solid fa-house"></i>
+    </button>
 
-<div id="modulo" class="homeAtiva">
+    <button onclick="abrirModulo('temperatura')">
+      <i class="fa-solid fa-temperature-half"></i>
+    </button>
 
-<div class="homeTela">
+    <button onclick="abrirModulo('btu')">
+      <i class="fa-solid fa-snowflake"></i>
+    </button>
 
-<img src="img/logo-metrica.png" class="logoHome">
+    <button onclick="abrirModulo('eletrica')">
+      <i class="fa-solid fa-bolt"></i>
+    </button>
 
-<div class="boasVindasBox">
-<h2>Painel Técnico</h2>
-<p>Olá, Técnico.<br>Estou aqui para facilitar o seu trabalho.</p>
+    <button onclick="abrirModulo('diagnosticoAvancado')">
+      <i class="fa-solid fa-stethoscope"></i>
+    </button>
+  </div>
 
-<div class="barra-loading">
-<div class="progresso-loading"></div>
-</div>
+  <div class="app">
+    <div class="conteudo">
+      <div id="modulo" class="homeAtiva"></div>
+    </div>
+  </div>
 
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<script src="js/conversores.js"></script>
-<script src="js/refrigeracao.js"></script>
-<script src="js/eletrica.js"></script>
-<script src="js/diagnostico.js"></script>
-<script src="js/app.js"></script>
-
-<script>
-if ("serviceWorker" in navigator) {
-navigator.serviceWorker.register("service-worker.js");
-}
-</script>
+  <script src="js/conversores.js"></script>
+  <script src="js/refrigeracao.js"></script>
+  <script src="js/eletrica.js"></script>
+  <script src="js/diagnostico.js"></script>
+  <script src="js/app.js"></script>
 
 </body>
 </html>

@@ -31,19 +31,31 @@ flex-direction: column;
 align-items: center;
 text-align: center;
 }
-
 .logoHome {
-width: 140px;
-margin-top: 20px;
+  width: 96px;
+  margin-top: 8px;
+  margin-bottom: 10px;
 }
 
 .boasVindasBox {
-margin-top: 30px;
-background: #0d2450;
-color: #f0c93d;
-padding: 20px;
-border-radius: 16px;
-width: 100%;
+  margin-top: 10px;
+  background: #0d2450;
+  color: #f0c93d;
+  padding: 20px 18px;
+  border-radius: 18px;
+  width: 100%;
+}
+
+.boasVindasBox h2 {
+  color: #3ab378;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.boasVindasBox p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 16px;
 }
 
 .boasVindasBox h2 {
@@ -78,23 +90,29 @@ animation: carregar 2s infinite;
 /* CARDS */
 
 .homeModulos {
-display: flex;
-flex-direction: column;
-gap: 12px;
-margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 8px;
+  width: 100%;
 }
 
 .card {
-background: #101f3a;
-color: white;
-padding: 18px;
-border-radius: 12px;
-text-align: center;
-border: 1px solid #4c6b59;
-cursor: pointer;
-transition: 0.2s;
+  background: #101f3a;
+  color: white;
+  padding: 22px 16px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid #4c6b59;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100%;
 }
 
+.card h3 {
+  margin: 10px 0 0 0;
+  font-size: 18px;
+}
 .card:hover {
 background: #132d5c;
 }
@@ -205,12 +223,190 @@ input {
   text-align: center;
 }
 
-.homeModulos > .card:first-child {
-  background: #101f3a !important;
-  border: 1px solid #4c6b59 !important;
-  color: white !important;
-  padding: 20px !important;
-  border-radius: 10px !important;
-  width: 100% !important;
-  display: block !important;
+
+/* ===== PASSO 1 - TOPO MOBILE + MENU LATERAL ===== */
+
+body {
+  padding-top: 72px;
+}
+
+/* esconde o menu antigo inferior */
+.menuMobile {
+  display: none;
+}
+
+.topoMobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  background: #0d1633;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+
+.btnMenuTopo,
+.btnTopoDireita,
+.btnFecharMenu {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.btnMenuTopo:hover,
+.btnTopoDireita:hover,
+.btnFecharMenu:hover {
+  background: transparent;
+  color: #63d1ff;
+}
+
+.marcaTopo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  margin-left: 8px;
+}
+
+.logoTopo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.textoTopo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.textoTopo strong {
+  color: white;
+  font-size: 16px;
+}
+
+.textoTopo span {
+  color: #9fb3d9;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.overlayMenu {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.overlayMenu.ativo {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menuLateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 82%;
+  max-width: 320px;
+  height: 100vh;
+  background: #08142c;
+  z-index: 1200;
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 18px rgba(0,0,0,0.35);
+  visibility: hidden;
+}
+
+.menuLateral.aberto {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.topoMenuLateral {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.grupoMenuLateral {
+  padding: 18px 16px 24px;
+  overflow-y: auto;
+}
+
+.tituloGrupoMenu {
+  color: #7f95bb;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 14px 0;
+}
+
+.grupoMenuLateral button {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 14px 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.grupoMenuLateral button:hover {
+  background: #0f2b57;
+  color: white;
+}
+
+.conteudo {
+  padding-top: 10px;
+}
+/* ===== AJUSTE DE VISIBILIDADE DO CONTEÚDO PRINCIPAL ===== */
+
+.app {
+  width: 100%;
+}
+
+.conteudo {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#modulo {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+}
+
+.homeTela {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  gap: 14px;
+}
+
+.boasVindasBox {
+  display: block;
 }
