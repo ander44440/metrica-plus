@@ -53,18 +53,70 @@
     <div class="grupoMenuLateral">
       <p class="tituloGrupoMenu">Ferramentas</p>
 
-      <button onclick="navegarModulo('home')">🏠 Home</button>
-      <button onclick="navegarModulo('temperatura')">🌡 Temperatura</button>
-      <button onclick="navegarModulo('btu')">❄ BTU ↔ W</button>
-      <button onclick="navegarModulo('pressao')">📊 Pressão</button>
-      <button onclick="navegarModulo('eletrica')">⚡ Elétrica</button>
-      <button onclick="navegarModulo('deltaT')">📉 Delta T</button>
-      <button onclick="navegarModulo('superheat')">🔥 Superheat</button>
-      <button onclick="navegarModulo('subcool')">❄ Subcool</button>
-      <button onclick="navegarModulo('tempo')">⏱ Tempo</button>
-      <button onclick="navegarModulo('tabelaPT')">📘 Tabela PT</button>
-      <button onclick="navegarModulo('diagnostico')">🧠 Diagnóstico</button>
-      <button onclick="navegarModulo('diagnosticoAvancado')">🚀 Diagnóstico Avançado</button>
+      <button class="itemMenu" onclick="navegarModulo('home')">
+        <span class="itemMenuEsq">🏠 <span>Home</span></span>
+        <span class="itemMenuSeta">›</span>
+      </button>
+
+      <button class="itemMenu" onclick="navegarModulo('temperatura')">
+        <span class="itemMenuEsq">🌡 <span>Temperatura</span></span>
+        <span class="itemMenuSeta">›</span>
+      </button>
+
+      <button class="itemMenu" onclick="navegarModulo('btu')">
+        <span class="itemMenuEsq">❄ <span>BTU ↔ W</span></span>
+        <span class="itemMenuSeta">›</span>
+      </button>
+
+      <button class="itemMenu" onclick="navegarModulo('pressao')">
+        <span class="itemMenuEsq">📊 <span>Pressão</span></span>
+        <span class="itemMenuSeta">›</span>
+      </button>
+
+      <button class="itemMenu" onclick="navegarModulo('eletrica')">
+        <span class="itemMenuEsq">⚡ <span>Elétrica</span></span>
+        <span class="itemMenuSeta">›</span>
+      </button>
+
+      <button class="itemMenu" onclick="navegarModulo('deltaT')">
+        <span class="itemMenuEsq">📉 <span>Delta T</span></span>
+        <span class="itemMenuSeta">›</span>
+      </button>
+
+      <button class="itemMenu" onclick="navegarModulo('superheat')">
+        <span class="itemMenuEsq">🔥 <span>Superheat</span></span>
+        <span class="itemMenuSeta">›</span>
+      </button>
+
+      <button class="itemMenu" onclick="navegarModulo('subcool')">
+        <span class="itemMenuEsq">❄ <span>Subcool</span></span>
+        <span class="itemMenuSeta">›</span>
+      </button>
+
+      <button class="itemMenu" onclick="navegarModulo('tempo')">
+        <span class="itemMenuEsq">⏱ <span>Tempo</span></span>
+        <span class="itemMenuSeta">›</span>
+      </button>
+
+      <button class="itemMenu" onclick="navegarModulo('tabelaPT')">
+        <span class="itemMenuEsq">📘 <span>Tabela PT</span></span>
+        <span class="itemMenuSeta">›</span>
+      </button>
+
+      <button class="itemMenu" onclick="navegarModulo('diagnostico')">
+        <span class="itemMenuEsq">🧠 <span>Diagnóstico</span></span>
+        <span class="itemMenuSeta">›</span>
+      </button>
+
+      <button class="itemMenu" onclick="navegarModulo('diagnosticoAvancado')">
+        <span class="itemMenuEsq">🚀 <span>Diagnóstico Avançado</span></span>
+        <span class="itemMenuSeta">›</span>
+      </button>
+
+      <button class="itemMenu" onclick="navegarModulo('fluidos')">
+        <span class="itemMenuEsq">🧪 <span>Régua de Fluidos</span></span>
+        <span class="itemMenuSeta">›</span>
+</button>
     </div>
   </aside>
 
@@ -101,6 +153,7 @@
   <script src="js/refrigeracao.js"></script>
   <script src="js/eletrica.js"></script>
   <script src="js/diagnostico.js"></script>
+  <script src="js/fluidos.js"></script>
   <script src="js/app.js"></script>
 
 </body>

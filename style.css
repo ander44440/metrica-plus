@@ -410,3 +410,177 @@ body {
 .boasVindasBox {
   display: block;
 }
+/* ===== MENU LATERAL - ITEM ESTILO BASE44 ===== */
+
+.itemMenu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: #f2f6ff;
+  padding: 14px 14px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.itemMenuEsq {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.itemMenuEsq span {
+  display: inline-block;
+}
+
+.itemMenuSeta {
+  font-size: 18px;
+  color: transparent;
+  transition: all 0.2s ease;
+}
+
+.itemMenu:hover {
+  background: rgba(0, 209, 255, 0.10);
+  color: #63d1ff;
+  border-left: 3px solid #00d1ff;
+}
+
+.itemMenu:hover .itemMenuSeta {
+  color: #63d1ff;
+}
+
+.itemMenu.ativo {
+  background: rgba(0, 209, 255, 0.14);
+  color: #63d1ff;
+  border-left: 3px solid #00d1ff;
+}
+
+.itemMenu.ativo .itemMenuSeta {
+  color: #63d1ff;
+}
+
+/* ===== RÉGUA DE FLUIDOS ===== */
+
+.reguaFluidos {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 6px 0 12px 0;
+  margin-bottom: 14px;
+}
+
+.botaoFluido {
+  flex: 0 0 auto;
+  background: #0d2450;
+  color: white;
+  border: 1px solid #3ab378;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.botaoFluido:hover {
+  background: #16376f;
+}
+
+.botaoFluido.ativo {
+  background: #3ab378;
+  color: #08142c;
+}
+
+.fichaFluido {
+  width: 100%;
+}
+
+.cardFluido {
+  width: 100%;
+  background: #101f3a;
+  color: white;
+  border-radius: 16px;
+  padding: 18px;
+  text-align: left;
+  border: 1px solid #4c6b59;
+}
+
+.cardFluido h3 {
+  margin-top: 0;
+  color: #63d1ff;
+}
+
+.cardFluido p {
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+/* ===== FICHA TÉCNICA DOS FLUIDOS - MELHORADA ===== */
+
+.cardFluido {
+  width: 100%;
+  background: #101f3a;
+  color: white;
+  border-radius: 18px;
+  padding: 18px;
+  text-align: left;
+  border: 1px solid #4c6b59;
+}
+
+.cardFluido h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #63d1ff;
+  font-size: 22px;
+  text-align: center;
+}
+
+.blocoFluido {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(99, 209, 255, 0.12);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.blocoFluido h4 {
+  margin: 0 0 10px 0;
+  color: #3ab378;
+  font-size: 16px;
+}
+
+.blocoFluido p {
+  margin: 7px 0;
+  line-height: 1.45;
+  font-size: 14px;
+}
+
+.blocoAlerta {
+  border-left: 4px solid #f0c93d;
+}
+
+.notaFluido {
+  background: rgba(58, 179, 120, 0.08);
+  border: 1px solid rgba(58, 179, 120, 0.18);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.notaFluido h4 {
+  margin: 0 0 10px 0;
+  color: #f0c93d;
+  font-size: 16px;
+}
+
+.notaFluido p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 14px;
+}
