@@ -468,35 +468,57 @@ body {
 
 /* ===== RÉGUA DE FLUIDOS ===== */
 
+/* ===== RÉGUA DE FLUIDOS ===== */
+
 .reguaFluidos {
   width: 100%;
   display: flex;
   gap: 10px;
   overflow-x: auto;
-  padding: 6px 0 12px 0;
-  margin-bottom: 14px;
+  padding: 4px 2px 12px 2px;
+  margin: 8px 0 14px 0;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.reguaFluidos::-webkit-scrollbar {
+  height: 6px;
+}
+
+.reguaFluidos::-webkit-scrollbar-thumb {
+  background: rgba(99, 209, 255, 0.35);
+  border-radius: 999px;
 }
 
 .botaoFluido {
   flex: 0 0 auto;
+  min-height: 42px;
   background: #0d2450;
-  color: white;
-  border: 1px solid #3ab378;
+  color: #ffffff;
+  border: 1px solid rgba(58, 179, 120, 0.45);
   border-radius: 999px;
   padding: 10px 16px;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 700;
   white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .botaoFluido:hover {
   background: #16376f;
+  border-color: #63d1ff;
+  transform: translateY(-1px);
 }
 
 .botaoFluido.ativo {
   background: #3ab378;
   color: #08142c;
+  border-color: #3ab378;
+  box-shadow: 0 0 0 2px rgba(58, 179, 120, 0.18);
 }
+
+/* ===== FICHA TÉCNICA DOS FLUIDOS ===== */
 
 .fichaFluido {
   width: 100%;
@@ -504,83 +526,111 @@ body {
 
 .cardFluido {
   width: 100%;
-  background: #101f3a;
-  color: white;
-  border-radius: 16px;
-  padding: 18px;
-  text-align: left;
-  border: 1px solid #4c6b59;
-}
-
-.cardFluido h3 {
-  margin-top: 0;
-  color: #63d1ff;
-}
-
-.cardFluido p {
-  margin: 8px 0;
-  line-height: 1.4;
-}
-
-/* ===== FICHA TÉCNICA DOS FLUIDOS - MELHORADA ===== */
-
-.cardFluido {
-  width: 100%;
-  background: #101f3a;
+  background: linear-gradient(180deg, #101f3a 0%, #0d1a31 100%);
   color: white;
   border-radius: 18px;
-  padding: 18px;
+  padding: 18px 16px;
   text-align: left;
-  border: 1px solid #4c6b59;
+  border: 1px solid rgba(99, 209, 255, 0.14);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+  box-sizing: border-box;
 }
 
 .cardFluido h3 {
-  margin-top: 0;
-  margin-bottom: 16px;
+  margin: 0 0 14px 0;
   color: #63d1ff;
   font-size: 22px;
   text-align: center;
+  letter-spacing: 0.3px;
 }
 
-.blocoFluido {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(99, 209, 255, 0.12);
-  border-radius: 14px;
-  padding: 14px;
-  margin-bottom: 14px;
-}
-
-.blocoFluido h4 {
-  margin: 0 0 10px 0;
-  color: #3ab378;
-  font-size: 16px;
-}
-
-.blocoFluido p {
-  margin: 7px 0;
+.cardFluido p {
+  margin: 0;
+  padding: 10px 0;
   line-height: 1.45;
   font-size: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
 }
 
-.blocoAlerta {
-  border-left: 4px solid #f0c93d;
+.cardFluido p:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-.notaFluido {
-  background: rgba(58, 179, 120, 0.08);
-  border: 1px solid rgba(58, 179, 120, 0.18);
-  border-radius: 14px;
-  padding: 14px;
+.cardFluido strong {
+  color: #3ab378;
+  font-weight: 700;
 }
 
-.notaFluido h4 {
-  margin: 0 0 10px 0;
-  color: #f0c93d;
-  font-size: 16px;
-}
+@media (max-width: 600px) {
+  .botaoFluido {
+    font-size: 13px;
+    padding: 9px 14px;
+    min-height: 40px;
+  }
 
-.notaFluido p {
-  margin: 0;
+  .cardFluido {
+    padding: 16px 14px;
+    border-radius: 16px;
+  }
+
+  .cardFluido h3 {
+    font-size: 20px;
+  }
+
+  .cardFluido p {
+    font-size: 13px;
+    padding: 9px 0;
+  }
+}
+/* ===== RESULTADO TABELA PT ===== */
+
+#resultadoPT {
+  background: linear-gradient(180deg, #101f3a 0%, #0d1a31 100%);
+  border: 1px solid rgba(99, 209, 255, 0.14);
+  border-radius: 16px;
+  padding: 16px 14px;
+  margin-top: 14px;
+  color: #ffffff;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
   line-height: 1.5;
-  font-size: 14px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+#resultadoPT strong {
+  color: #3ab378;
+  font-weight: 700;
+}
+
+#resultadoPT .pt-label {
+  color: #8fd9b2;
+  font-weight: 600;
+}
+
+#resultadoPT .pt-valor {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+#resultadoPT .pt-temp {
+  display: block;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 18px;
+  font-weight: 700;
+  color: #63d1ff;
+}
+
+@media (max-width: 600px) {
+  #resultadoPT {
+    padding: 14px 12px;
+    border-radius: 14px;
+    font-size: 14px;
+  }
+
+  #resultadoPT .pt-temp {
+    font-size: 17px;
+  }
 }

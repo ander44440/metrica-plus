@@ -13,27 +13,25 @@ function renderizarFichaFluido(idFluido) {
   areaFicha.innerHTML = `
     <div class="cardFluido">
       <h3>${fluido.nome || "-"}</h3>
-      <p><strong>Família:</strong> ${fluido.familia || "-"}</p>
-      <p><strong>Classe:</strong> ${fluido.classe || "-"}</p>
-      <p><strong>Pressão:</strong> ${fluido.pressao || "-"}</p>
+
+      <p><strong>Classificação:</strong> ${fluido.classe || fluido.familia || "-"}</p>
       <p><strong>Aplicação:</strong> ${fluido.aplicacao || "-"}</p>
-      <p><strong>Óleo:</strong> ${fluido.oleo || "-"}</p>
+
+      <p><strong>Óleo compatível:</strong> ${fluido.oleo || "-"}</p>
       <p><strong>Glide:</strong> ${fluido.glide || "-"}</p>
-      <p><strong>Tipo:</strong> ${fluido.tipo || "-"}</p>
+
+      <p><strong>Segurança:</strong> Inflamável: ${fluido.inflamavel || "-"} | Tóxico: ${fluido.toxico || "-"}</p>
+      <p><strong>Cuidado principal:</strong> ${fluido.cuidadoPrincipal || "-"}</p>
+
       <p><strong>Substitui:</strong> ${fluido.substitui || "-"}</p>
       <p><strong>Substituto por:</strong> ${fluido.substitutoPor || "-"}</p>
+
       <p><strong>Baixa temperatura:</strong> ${fluido.baixaTemp || "-"}</p>
       <p><strong>Média temperatura:</strong> ${fluido.mediaTemp || "-"}</p>
       <p><strong>Alta temperatura:</strong> ${fluido.altaTemp || "-"}</p>
-      <p><strong>Residencial:</strong> ${fluido.residencial || "-"}</p>
-      <p><strong>Comercial:</strong> ${fluido.comercial || "-"}</p>
-      <p><strong>Industrial:</strong> ${fluido.industrial || "-"}</p>
-      <p><strong>Automotivo:</strong> ${fluido.automotivo || "-"}</p>
-      <p><strong>Inflamável:</strong> ${fluido.inflamavel || "-"}</p>
-      <p><strong>Tóxico:</strong> ${fluido.toxico || "-"}</p>
-      <p><strong>Cuidado principal:</strong> ${fluido.cuidadoPrincipal || "-"}</p>
-      <p><strong>Manuseio:</strong> ${fluido.manuseio || "-"}</p>
-      <p><strong>Nota técnica:</strong> ${fluido.notaTecnica || "-"}</p>
+
+      <p><strong>Pressão:</strong> ${fluido.pressao || "-"}</p>
+      <p><strong>Tipo:</strong> ${fluido.tipo || "-"}</p>
     </div>
   `;
 
@@ -50,6 +48,11 @@ function renderizarFichaFluido(idFluido) {
     botaoAtivo.classList.add("ativo");
   }
 }
+
+
+
+
+
 
 function montarReguaFluidos() {
   if (!window.fluidosRefrigerantes) {
@@ -393,8 +396,17 @@ function abrirModulo(modulo) {
   }
 
   // ================= TABELA PT =================
-  else if (modulo === "tabelaPT") {
+  else if (modulo === "tabelaPT") { 
     area.innerHTML = layout("Tabela PT", "resultadoPT", `
+      <select id="fluidoPT">
+        <option value="">Selecione o fluido</option>
+        <option value="R22">R22</option>
+        <option value="R134a">R134a</option>
+        <option value="R404A">R404A</option>
+        <option value="R410A">R410A</option>
+        <option value="R32">R32</option>
+      </select>
+
       <input id="pressaoPT" placeholder="Pressão (bar)">
       <button onclick="buscarPT()">Buscar</button>
     `);
