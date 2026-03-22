@@ -396,20 +396,60 @@ function abrirModulo(modulo) {
   }
 
   // ================= TABELA PT =================
-  else if (modulo === "tabelaPT") { 
+else if (modulo === "tabelaPT") { 
     area.innerHTML = layout("Tabela PT", "resultadoPT", `
+      <label>Selecione o fluido:</label>
       <select id="fluidoPT">
-        <option value="">Selecione o fluido</option>
+        <option value="">-- Escolha --</option>
         <option value="R22">R22</option>
         <option value="R134a">R134a</option>
         <option value="R404A">R404A</option>
         <option value="R410A">R410A</option>
         <option value="R32">R32</option>
+        <option value="R407C">R407C</option>
+        <option value="R507">R507</option>
+        <option value="R290">R290</option>
+        <option value="R600a">R600a</option>
+        <option value="R438A">R438A</option>
+        <option value="R448A">R448A</option>
+        <option value="R449A">R449A</option>
+        <option value="R717">R717</option>
+        <option value="R141b">R141b</option>
+        <option value="R1234yf">R1234yf</option>
+        <option value="R1234ze">R1234ze</option>
+        <option value="R744">R744</option>
+        <option value="R11">R11</option>
+        <option value="R12">R12</option>
+        <option value="R13">R13</option>
+        <option value="R14">R14</option>
+        <option value="R401A">R401A</option>
+        <option value="R402A">R402A</option>
+        <option value="R402B">R402B</option>
+        <option value="R408A">R408A</option>
+        <option value="R407A">R407A</option>
+        <option value="R407F">R407F</option>
+        <option value="R422D">R422D</option>
+        <option value="R427A">R427A</option>
+        <option value="R421A">R421A</option>
+        <option value="R421B">R421B</option>
+        <option value="R422A">R422A</option>
+        <option value="R422B">R422B</option>
+        <option value="R424A">R424A</option>
+        <option value="R434A">R434A</option>
+        <option value="R437A">R437A</option>
+        <option value="R452A">R452A</option>
+        <option value="R452B">R452B</option>
+        <option value="R454A">R454A</option>
+        <option value="R454B">R454B</option>
+        <option value="R454C">R454C</option>
       </select>
 
-      <input id="pressaoPT" placeholder="Pressão (bar)">
-      <button onclick="buscarPT()">Buscar</button>
+      <label>Pressão (bar):</label>
+      <input type="number" id="pressaoPT" placeholder="Ex: 8.5" step="0.1">
+
+      <button onclick="buscarPT()">Buscar Temperatura</button>
     `);
+
 
     setTimeout(() => {
       const input = document.getElementById("pressaoPT");

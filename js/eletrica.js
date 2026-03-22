@@ -77,3 +77,54 @@ function calcularOhmCompleto() {
         Potência: ${P.toFixed(2)} W
     `;
 }
+function calcularCapacitancia() {
+    const c1Input = document.getElementById("cap1")?.value;
+    const c2Input = document.getElementById("cap2")?.value;
+    const tipo = document.getElementById("tipoCapacitancia")?.value;
+    const res = document.getElementById("resultadoCapacitancia");
+
+    if (!res) return;
+
+    const C1 = c1Input !== "" && c1Input != null ? parseFloat(c1Input) : null;
+    const C2 = c2Input !== "" && c2Input != null ? parseFloat(c2Input) : null;
+
+    if (C1 === null || C2 === null || isNaN(C1) || isNaN(C2)) {
+        res.innerHTML = "Por favor, informe os dois valores de capacitância.";
+        return;
+    }
+
+    if (C1 <= 0 || C2 <= 0) {
+        res.innerHTML = "Valor inválido. As capacitâncias devem ser maiores que zero.";
+        return;
+    }
+
+    let resultado = null;
+    let formula = "";
+
+    if (tipo === "paralelo") {
+        resultado = C1 + C2;
+        formula = "Cp = C1 + C2";
+
+    } else if (tipo === "serie") {
+        resultado = (C1 * C2) / (C1 + C2);
+        formula = "Cs = (C1 × C2) / (C1 + C2)";
+
+    } else {
+        res.innerHTML = "Selecione o tipo de associação: série ou paralelo.";
+        return;
+    }
+
+    if (!isFinite(resultado) || isNaN(resultado)) {
+        res.innerHTML = "Não foi possível calcular. Verifique os valores informados.";
+        return;
+    }
+
+    res.innerHTML = `
+        <strong>Resultado:</strong><br>
+        Tipo: ${tipo === "serie" ? "Série" : "Paralelo"}<br>
+        C1: ${C1.toFixed(2)} µF<br>
+        C2: ${C2.toFixed(2)} µF<br>
+        Fórmula: ${formula}<br>
+        Capacitância equivalente: ${resultado.toFixed(2)} µF
+    `;
+}
