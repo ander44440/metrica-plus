@@ -104,11 +104,9 @@ function calcularCapacitancia() {
     if (tipo === "paralelo") {
         resultado = C1 + C2;
         formula = "Cp = C1 + C2";
-
     } else if (tipo === "serie") {
         resultado = (C1 * C2) / (C1 + C2);
         formula = "Cs = (C1 × C2) / (C1 + C2)";
-
     } else {
         res.innerHTML = "Selecione o tipo de associação: série ou paralelo.";
         return;

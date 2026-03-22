@@ -40,6 +40,142 @@ let C = (F - 32) * 5/9;
 res.innerHTML = F.toFixed(2) + " °F = " + C.toFixed(2) + " °C";
 }
 
+function cParaK() {
+    const valor = parseFloat(document.getElementById("valorTemp").value);
+    const res = document.getElementById("resultadoTemp");
+
+    if (isNaN(valor)) {
+        res.innerHTML = "Digite um valor válido.";
+        return;
+    }
+
+    const resultado = valor + 273.15;
+
+    res.innerHTML = `
+        <strong>Conversão:</strong><br>
+        ${valor.toFixed(2)} °C = ${resultado.toFixed(2)} K
+    `;
+}
+
+function kParaC() {
+    const valor = parseFloat(document.getElementById("valorTemp").value);
+    const res = document.getElementById("resultadoTemp");
+
+    if (isNaN(valor)) {
+        res.innerHTML = "Digite um valor válido.";
+        return;
+    }
+
+    const resultado = valor - 273.15;
+
+    res.innerHTML = `
+        <strong>Conversão:</strong><br>
+        ${valor.toFixed(2)} K = ${resultado.toFixed(2)} °C
+    `;
+}
+
+function cParaRankine() {
+    const valor = parseFloat(document.getElementById("valorTemp").value);
+    const res = document.getElementById("resultadoTemp");
+
+    if (isNaN(valor)) {
+        res.innerHTML = "Digite um valor válido.";
+        return;
+    }
+
+    const resultado = (valor + 273.15) * 9 / 5;
+
+    res.innerHTML = `
+        <strong>Conversão:</strong><br>
+        ${valor.toFixed(2)} °C = ${resultado.toFixed(2)} °R
+    `;
+}
+
+function rankineParaC() {
+    const valor = parseFloat(document.getElementById("valorTemp").value);
+    const res = document.getElementById("resultadoTemp");
+
+    if (isNaN(valor)) {
+        res.innerHTML = "Digite um valor válido.";
+        return;
+    }
+
+    const resultado = (valor - 491.67) * 5 / 9;
+
+    res.innerHTML = `
+        <strong>Conversão:</strong><br>
+        ${valor.toFixed(2)} °R = ${resultado.toFixed(2)} °C
+    `;
+}
+
+function fParaK() {
+    const valor = parseFloat(document.getElementById("valorTemp").value);
+    const res = document.getElementById("resultadoTemp");
+
+    if (isNaN(valor)) {
+        res.innerHTML = "Digite um valor válido.";
+        return;
+    }
+
+    const resultado = (valor - 32) * 5 / 9 + 273.15;
+
+    res.innerHTML = `
+        <strong>Conversão:</strong><br>
+        ${valor.toFixed(2)} °F = ${resultado.toFixed(2)} K
+    `;
+}
+
+function kParaF() {
+    const valor = parseFloat(document.getElementById("valorTemp").value);
+    const res = document.getElementById("resultadoTemp");
+
+    if (isNaN(valor)) {
+        res.innerHTML = "Digite um valor válido.";
+        return;
+    }
+
+    const resultado = (valor - 273.15) * 9 / 5 + 32;
+
+    res.innerHTML = `
+        <strong>Conversão:</strong><br>
+        ${valor.toFixed(2)} K = ${resultado.toFixed(2)} °F
+    `;
+}
+
+function fParaRankine() {
+    const valor = parseFloat(document.getElementById("valorTemp").value);
+    const res = document.getElementById("resultadoTemp");
+
+    if (isNaN(valor)) {
+        res.innerHTML = "Digite um valor válido.";
+        return;
+    }
+
+    const resultado = valor + 459.67;
+
+    res.innerHTML = `
+        <strong>Conversão:</strong><br>
+        ${valor.toFixed(2)} °F = ${resultado.toFixed(2)} °R
+    `;
+}
+
+function rankineParaF() {
+    const valor = parseFloat(document.getElementById("valorTemp").value);
+    const res = document.getElementById("resultadoTemp");
+
+    if (isNaN(valor)) {
+        res.innerHTML = "Digite um valor válido.";
+        return;
+    }
+
+    const resultado = valor - 459.67;
+
+    res.innerHTML = `
+        <strong>Conversão:</strong><br>
+        ${valor.toFixed(2)} °R = ${resultado.toFixed(2)} °F
+    `;
+}
+
 function btuParaW(){
 let v = document.getElementById("valorBTU").value;
 let res = document.getElementById("resultado");

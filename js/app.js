@@ -190,36 +190,44 @@ function abrirModulo(modulo) {
 
   // ================= TEMPERATURA =================
   else if (modulo === "temperatura") {
-    area.innerHTML = `
-      <div class="moduloPadrao">
-        <button onclick="abrirModulo('home')" class="btn-voltar">⬅</button>
-        <h2 class="titulo-modulo">Temperatura</h2>
+  area.innerHTML = `
+    <div class="moduloPadrao">
+      <button onclick="abrirModulo('home')" class="btn-voltar">⬅</button>
+      <h2 class="titulo-modulo">Temperatura</h2>
 
-        <div class="resultado" id="resultadoTemp">
-          O resultado aparecerá aqui
-        </div>
-
-        <div class="grupoInputs">
-          <input id="valorTemp" placeholder="Digite o valor">
-          <button onclick="cParaF()">C → F</button>
-          <button onclick="fParaC()">F → C</button>
-        </div>
+      <div class="resultado" id="resultadoTemp">
+        O resultado aparecerá aqui
       </div>
-    `;
 
-    setTimeout(() => {
-      const input = document.getElementById("valorTemp");
+      <div class="grupoInputs">
+        <input id="valorTemp" placeholder="Digite o valor">
+        <button onclick="cParaF()">C → F</button>
+        <button onclick="fParaC()">F → C</button>
+        <button onclick="cParaK()">C → K</button>
+        <button onclick="kParaC()">K → C</button>
+        <button onclick="cParaRankine()">C → Rk</button>
+        <button onclick="rankineParaC()">Rk → C</button>
+        <button onclick="fParaK()">F → K</button>
+        <button onclick="kParaF()">K → F</button>
+        <button onclick="fParaRankine()">F → Rk</button>
+        <button onclick="rankineParaF()">Rk → F</button>
+      </div>
+    </div>
+  `;
 
-      if (input) {
-        input.focus();
-        input.addEventListener("keypress", function(e) {
-          if (e.key === "Enter") {
-            cParaF();
-          }
-        });
-      }
-    }, 0);
-  }
+  setTimeout(() => {
+    const input = document.getElementById("valorTemp");
+
+    if (input) {
+      input.focus();
+      input.addEventListener("keypress", function(e) {
+        if (e.key === "Enter") {
+          cParaF();
+        }
+      });
+    }
+  }, 0);
+}
 
   // ================= BTU =================
   else if (modulo === "btu") {
@@ -266,34 +274,75 @@ function abrirModulo(modulo) {
   }
 
   // ================= ELÉTRICA =================
-  else if (modulo === "eletrica") {
-    area.innerHTML = layout("Lei de Ohm", "resultadoOhmWheel", `
-      <input id="vOhm" placeholder="Tensão (V)">
-      <input id="iOhm" placeholder="Corrente (A)">
-      <input id="rOhm" placeholder="Resistência (Ω)">
-      <input id="pOhm" placeholder="Potência (W)">
-      <button onclick="calcularOhmCompleto()">Calcular</button>
-    `);
+ else if (modulo === "eletrica") {
+  area.innerHTML = `
+    <div class="moduloPadrao">
+      <button onclick="abrirModulo('home')" class="btn-voltar">⬅</button>
+      <h2 class="titulo-modulo">Elétrica</h2>
 
-    setTimeout(() => {
-      const v = document.getElementById("vOhm");
-      const i = document.getElementById("iOhm");
-      const r = document.getElementById("rOhm");
-      const p = document.getElementById("pOhm");
+      <div class="resultado" id="resultadoOhmWheel">
+        O resultado aparecerá aqui
+      </div>
 
-      if (v) v.focus();
+      <div class="grupoInputs">
+        <input id="vOhm" placeholder="Tensão (V)">
+        <input id="iOhm" placeholder="Corrente (A)">
+        <input id="rOhm" placeholder="Resistência (Ω)">
+        <input id="pOhm" placeholder="Potência (W)">
+        <button onclick="calcularOhmCompleto()">Calcular Lei de Ohm</button>
+      </div>
 
-      [v, i, r, p].forEach(input => {
-        if (input) {
-          input.addEventListener("keypress", function(e) {
-            if (e.key === "Enter") {
-              calcularOhmCompleto();
-            }
-          });
-        }
-      });
-    }, 0);
-  }
+      <div class="resultado" id="resultadoCapacitancia">
+        O resultado da capacitância aparecerá aqui
+      </div>
+
+      <div class="grupoInputs">
+        <input id="cap1" placeholder="Capacitor 1 (µF)">
+        <input id="cap2" placeholder="Capacitor 2 (µF)">
+
+        <select id="tipoCapacitancia">
+          <option value="serie">Série</option>
+          <option value="paralelo">Paralelo</option>
+        </select>
+
+        <button onclick="calcularCapacitancia()">Calcular Capacitância</button>
+      </div>
+    </div>
+  `;
+
+  setTimeout(() => {
+    const v = document.getElementById("vOhm");
+    const i = document.getElementById("iOhm");
+    const r = document.getElementById("rOhm");
+    const p = document.getElementById("pOhm");
+
+    const c1 = document.getElementById("cap1");
+    const c2 = document.getElementById("cap2");
+    const tipo = document.getElementById("tipoCapacitancia");
+
+    if (v) v.focus();
+
+    [v, i, r, p].forEach(input => {
+      if (input) {
+        input.addEventListener("keypress", function(e) {
+          if (e.key === "Enter") {
+            calcularOhmCompleto();
+          }
+        });
+      }
+    });
+
+    [c1, c2, tipo].forEach(input => {
+      if (input) {
+        input.addEventListener("keypress", function(e) {
+          if (e.key === "Enter") {
+            calcularCapacitancia();
+          }
+        });
+      }
+    });
+  }, 0);
+}
 
   // ================= DELTA T =================
   else if (modulo === "deltaT") {
@@ -430,7 +479,7 @@ else if (modulo === "tabelaPT") {
         <option value="R407F">R407F</option>
         <option value="R422D">R422D</option>
         <option value="R427A">R427A</option>
-        <option value="R421A">R421A</option>
+         <option value="R421A">R421A</option>
         <option value="R421B">R421B</option>
         <option value="R422A">R422A</option>
         <option value="R422B">R422B</option>
