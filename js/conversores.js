@@ -178,7 +178,7 @@ function rankineParaF() {
 
 function btuParaW(){
 let v = document.getElementById("valorBTU").value;
-let res = document.getElementById("resultado");
+let res = document.getElementById("resultadoBTU");
 
 if (v === "") {
     res.innerHTML = "Digite um valor.";
@@ -199,7 +199,7 @@ res.innerHTML = BTU.toFixed(2) + " BTU/h = " + W.toFixed(2) + " W";
 
 function wParaBTU(){
 let v = document.getElementById("valorBTU").value;
-let res = document.getElementById("resultado");
+let res = document.getElementById("resultadoBTU");
 
 if (v === "") {
     res.innerHTML = "Digite um valor.";
@@ -217,6 +217,7 @@ let BTU = W * 3.412;
 
 res.innerHTML = W.toFixed(2) + " W = " + BTU.toFixed(2) + " BTU/h";
 }
+
 
 function psiParaBar(){
 let v = document.getElementById("valorPressao").value;
@@ -326,4 +327,226 @@ function fParaC2() {
 
   const resultado = (valor - 32) * 5/9;
   saida.innerHTML = `${valor} °F = ${resultado.toFixed(2)} °C`;
+}
+
+// ================= PRESSÃO =================
+
+function lerValorPressao() {
+  const campo = document.getElementById("valorPressao");
+  if (!campo) return null;
+
+  const valor = parseFloat(campo.value);
+
+  if (isNaN(valor)) {
+    const resultado = document.getElementById("resultadoPressao");
+    if (resultado) {
+      resultado.innerHTML = "Digite um valor válido.";
+    }
+    return null;
+  }
+
+  return valor;
+}
+
+function mostrarResultadoPressao(texto) {
+  const resultado = document.getElementById("resultadoPressao");
+  if (resultado) {
+    resultado.innerHTML = texto;
+  }
+}
+
+// ---- PSI / BAR ----
+function psiParaBar() {
+  const valor = lerValorPressao();
+  if (valor === null) return;
+
+  const convertido = valor * 0.0689476;
+  mostrarResultadoPressao(`${valor} PSI = <strong>${convertido.toFixed(4)} bar</strong>`);
+}
+
+function barParaPsi() {
+  const valor = lerValorPressao();
+  if (valor === null) return;
+
+  const convertido = valor * 14.5038;
+  mostrarResultadoPressao(`${valor} bar = <strong>${convertido.toFixed(4)} PSI</strong>`);
+}
+
+// ---- PSI / kPa ----
+function psiParaKpa() {
+  const valor = lerValorPressao();
+  if (valor === null) return;
+
+  const convertido = valor * 6.89476;
+  mostrarResultadoPressao(`${valor} PSI = <strong>${convertido.toFixed(2)} kPa</strong>`);
+}
+
+function kpaParaPsi() {
+  const valor = lerValorPressao();
+  if (valor === null) return;
+
+  const convertido = valor / 6.89476;
+  mostrarResultadoPressao(`${valor} kPa = <strong>${convertido.toFixed(4)} PSI</strong>`);
+}
+
+// ---- PSI / MPa ----
+function psiParaMpa() {
+  const valor = lerValorPressao();
+  if (valor === null) return;
+
+  const convertido = valor * 0.00689476;
+  mostrarResultadoPressao(`${valor} PSI = <strong>${convertido.toFixed(5)} MPa</strong>`);
+}
+
+function mpaParaPsi() {
+  const valor = lerValorPressao();
+  if (valor === null) return;
+
+  const convertido = valor / 0.00689476;
+  mostrarResultadoPressao(`${valor} MPa = <strong>${convertido.toFixed(4)} PSI</strong>`);
+}
+
+// ---- PSI / kgf/cm² ----
+function psiParaKgf() {
+  const valor = lerValorPressao();
+  if (valor === null) return;
+
+  const convertido = valor * 0.0703069;
+  mostrarResultadoPressao(`${valor} PSI = <strong>${convertido.toFixed(4)} kgf/cm²</strong>`);
+}
+
+function kgfParaPsi() {
+  const valor = lerValorPressao();
+  if (valor === null) return;
+
+  const convertido = valor / 0.0703069;
+  mostrarResultadoPressao(`${valor} kgf/cm² = <strong>${convertido.toFixed(4)} PSI</strong>`);
+}
+
+// ---- BAR / kPa ----
+function barParaKpa() {
+  const valor = lerValorPressao();
+  if (valor === null) return;
+
+  const convertido = valor * 100;
+  mostrarResultadoPressao(`${valor} bar = <strong>${convertido.toFixed(2)} kPa</strong>`);
+}
+
+function kpaParaBar() {
+  const valor = lerValorPressao();
+  if (valor === null) return;
+
+  const convertido = valor / 100;
+  mostrarResultadoPressao(`${valor} kPa = <strong>${convertido.toFixed(4)} bar</strong>`);
+}
+
+// ---- BAR / MPa ----
+function barParaMpa() {
+  const valor = lerValorPressao();
+  if (valor === null) return;
+
+  const convertido = valor * 0.1;
+  mostrarResultadoPressao(`${valor} bar = <strong>${convertido.toFixed(4)} MPa</strong>`);
+}
+
+function mpaParaBar() {
+  const valor = lerValorPressao();
+  if (valor === null) return;
+
+  const convertido = valor * 10;
+  mostrarResultadoPressao(`${valor} MPa = <strong>${convertido.toFixed(4)} bar</strong>`);
+}
+
+// ---- BAR / kgf/cm² ----
+function barParaKgf() {
+  const valor = lerValorPressao();
+  if (valor === null) return;
+
+  const convertido = valor * 1.01972;
+  mostrarResultadoPressao(`${valor} bar = <strong>${convertido.toFixed(4)} kgf/cm²</strong>`);
+}
+
+function kgfParaBar() {
+  const valor = lerValorPressao();
+  if (valor === null) return;
+
+  const convertido = valor / 1.01972;
+  mostrarResultadoPressao(`${valor} kgf/cm² = <strong>${convertido.toFixed(4)} bar</strong>`);
+}
+
+// ================= VÁCUO =================
+
+function lerValorVacuo() {
+  const campo = document.getElementById("valorVacuo");
+  if (!campo) return null;
+
+  const valor = parseFloat(campo.value);
+
+  if (isNaN(valor)) {
+    const resultado = document.getElementById("resultadoVacuo");
+    if (resultado) {
+      resultado.innerHTML = "Digite um valor válido.";
+    }
+    return null;
+  }
+
+  return valor;
+}
+
+function mostrarResultadoVacuo(texto) {
+  const resultado = document.getElementById("resultadoVacuo");
+  if (resultado) {
+    resultado.innerHTML = texto;
+  }
+}
+
+// ---- inHg / mmHg ----
+function inhgParaMmhg() {
+  const valor = lerValorVacuo();
+  if (valor === null) return;
+
+  const convertido = valor * 25.4;
+  mostrarResultadoVacuo(`${valor} inHg = <strong>${convertido.toFixed(2)} mmHg</strong>`);
+}
+
+function mmhgParaInhg() {
+  const valor = lerValorVacuo();
+  if (valor === null) return;
+
+  const convertido = valor / 25.4;
+  mostrarResultadoVacuo(`${valor} mmHg = <strong>${convertido.toFixed(4)} inHg</strong>`);
+}
+
+// ---- inHg / microns ----
+function inhgParaMicrons() {
+  const valor = lerValorVacuo();
+  if (valor === null) return;
+
+  const convertido = valor * 25400;
+  mostrarResultadoVacuo(`${valor} inHg = <strong>${convertido.toFixed(0)} microns</strong>`);
+}
+
+function micronsParaInhg() {
+  const valor = lerValorVacuo();
+  if (valor === null) return;
+
+  const convertido = valor / 25400;
+  mostrarResultadoVacuo(`${valor} microns = <strong>${convertido.toFixed(6)} inHg</strong>`);
+}
+
+// ---- mmHg / microns ----
+function mmhgParaMicrons() {
+  const valor = lerValorVacuo();
+  if (valor === null) return;
+
+  const convertido = valor * 1000;
+  mostrarResultadoVacuo(`${valor} mmHg = <strong>${convertido.toFixed(0)} microns</strong>`);
+}
+
+function micronsParaMmhg() {
+  const valor = lerValorVacuo();
+  if (valor === null) return;
+
+  const convertido = valor / 1000;
+  mostrarResultadoVacuo(`${valor} microns = <strong>${convertido.toFixed(3)} mmHg</strong>`);
 }

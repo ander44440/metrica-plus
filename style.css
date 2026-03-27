@@ -74,13 +74,14 @@ border-radius: 999px;
 margin: 15px auto;
 overflow: hidden;
 }
-
+/*
 .progresso-loading {
 height: 100%;
 width: 40%;
 background: linear-gradient(90deg,#3ab378,#63d1ff);
 animation: carregar 2s infinite;
 }
+*/
 
 @keyframes carregar {
 0% { transform: translateX(-50px); }
@@ -468,7 +469,41 @@ body {
 
 /* ===== RÉGUA DE FLUIDOS ===== */
 
-/* ===== RÉGUA DE FLUIDOS ===== */
+.blocoTecnicoFluidos {
+  width: 100%;
+  background: linear-gradient(180deg, #101f3a 0%, #0d1a31 100%);
+  border: 1px solid rgba(99, 209, 255, 0.14);
+  border-radius: 16px;
+  padding: 16px 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+  box-sizing: border-box;
+}
+
+.tituloBlocoFluidos {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  text-align: center;
+  color: #63d1ff;
+}
+
+.resultadoFluidoTopo {
+  width: 100%;
+  background: #132d5c;
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  margin: 0 0 16px 0;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.resultadoFluidoTopo strong {
+  color: #63d1ff;
+}
 
 .reguaFluidos {
   width: 100%;
@@ -476,7 +511,7 @@ body {
   gap: 10px;
   overflow-x: auto;
   padding: 4px 2px 12px 2px;
-  margin: 8px 0 14px 0;
+  margin: 0 0 16px 0;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
@@ -633,4 +668,243 @@ body {
   #resultadoPT .pt-temp {
     font-size: 17px;
   }
+}
+
+/* ===== MÓDULO PRESSÃO ===== */
+
+.blocoPressao {
+  width: 100%;
+  background: linear-gradient(180deg, #101f3a 0%, #0d1a31 100%);
+  border-radius: 16px;
+  padding: 16px 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+  box-sizing: border-box;
+}
+
+.blocoPressaoPositiva {
+  border: 1px solid rgba(99, 209, 255, 0.14);
+}
+
+.blocoVacuo {
+  border: 1px solid rgba(58, 179, 120, 0.18);
+  margin-bottom: 8px;
+}
+
+.tituloBlocoPressao {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.tituloBlocoPressao.pressaoPositiva {
+  color: #63d1ff;
+}
+
+.tituloBlocoPressao.vacuo {
+  color: #3ab378;
+}
+
+/* ===== MÓDULO TEMPERATURA ===== */
+
+.blocoTecnico {
+  width: 100%;
+  background: linear-gradient(180deg, #101f3a 0%, #0d1a31 100%);
+  border: 1px solid rgba(99, 209, 255, 0.14);
+  border-radius: 16px;
+  padding: 16px 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+  box-sizing: border-box;
+}
+
+.tituloBlocoTecnico {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  text-align: center;
+  color: #63d1ff;
+}
+
+.textoApoioBloco {
+  margin: 0 0 14px 0;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+  color: #9fb3d9;
+}
+
+.gridBotoes2 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.gridBotoes2 button {
+  width: 100%;
+}
+
+@media (max-width: 420px) {
+  .gridBotoes2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== MÓDULO ELÉTRICA ===== */
+
+.blocoTecnicoVerde {
+  width: 100%;
+  background: linear-gradient(180deg, #101f3a 0%, #0d1a31 100%);
+  border: 1px solid rgba(58, 179, 120, 0.18);
+  border-radius: 16px;
+  padding: 16px 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+  box-sizing: border-box;
+}
+
+.tituloBlocoTecnicoVerde {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  text-align: center;
+  color: #3ab378;
+}
+
+.gridInputs2 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.gridInputs2 input,
+.gridInputs2 select,
+.gridInputs2 button {
+  width: 100%;
+}
+
+.botaoDestaque {
+  width: 100%;
+}
+
+@media (max-width: 420px) {
+  .gridInputs2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== MÓDULO TABELA PT ===== */
+
+.labelTecnica {
+  display: block;
+  width: 100%;
+  margin: 0 0 6px 0;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: #8fd9b2;
+}
+
+.blocoTecnicoPT {
+  width: 100%;
+  background: linear-gradient(180deg, #101f3a 0%, #0d1a31 100%);
+  border: 1px solid rgba(99, 209, 255, 0.14);
+  border-radius: 16px;
+  padding: 16px 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+  box-sizing: border-box;
+}
+
+.tituloBlocoPT {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  text-align: center;
+  color: #63d1ff;
+}
+
+.textoApoioPT {
+  margin: 0 0 14px 0;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+  color: #9fb3d9;
+}
+
+/* ===== MÓDULOS TÉRMICOS CURTOS ===== */
+
+.blocoTecnicoLaranja {
+  width: 100%;
+  background: linear-gradient(180deg, #101f3a 0%, #0d1a31 100%);
+  border: 1px solid rgba(240, 201, 61, 0.20);
+  border-radius: 16px;
+  padding: 16px 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+  box-sizing: border-box;
+}
+
+.tituloBlocoTecnicoLaranja {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  text-align: center;
+  color: #f0c93d;
+}
+
+/* ===== MÓDULOS DE DIAGNÓSTICO ===== */
+
+.blocoTecnicoVermelho {
+  width: 100%;
+  background: linear-gradient(180deg, #101f3a 0%, #0d1a31 100%);
+  border: 1px solid rgba(255, 120, 120, 0.18);
+  border-radius: 16px;
+  padding: 16px 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+  box-sizing: border-box;
+}
+
+.tituloBlocoTecnicoVermelho {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  text-align: center;
+  color: #ff8f8f;
+}
+
+.blocoTecnicoRoxo {
+  width: 100%;
+  background: linear-gradient(180deg, #101f3a 0%, #0d1a31 100%);
+  border: 1px solid rgba(171, 135, 255, 0.18);
+  border-radius: 16px;
+  padding: 16px 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+  box-sizing: border-box;
+}
+
+.tituloBlocoTecnicoRoxo {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  text-align: center;
+  color: #b08cff;
+}
+
+/* ===== MÓDULO TEMPO ===== */
+
+.blocoTecnicoAzul {
+  width: 100%;
+  background: linear-gradient(180deg, #101f3a 0%, #0d1a31 100%);
+  border: 1px solid rgba(99, 209, 255, 0.14);
+  border-radius: 16px;
+  padding: 16px 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+  box-sizing: border-box;
+}
+
+.tituloBlocoTecnicoAzul {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  text-align: center;
+  color: #63d1ff;
 }
