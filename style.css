@@ -204,17 +204,7 @@ font-size: 22px;
   text-align: center;
 }
 
-/* força resultado acima */
-#modulo h3 {
-  order: 1;
-}
 
-/* força inputs abaixo */
-#modulo input,
-#modulo select,
-#modulo button {
-  order: 2;
-}
 
 /* inputs centralizados */
 #modulo input {
@@ -907,4 +897,83 @@ body {
   font-size: 18px;
   text-align: center;
   color: #63d1ff;
+}
+
+/* ===== HOME COMPACTA ===== */
+
+.homeTela {
+  gap: 10px;
+}
+
+.boasVindasBoxCompacta {
+  width: 100%;
+  max-width: 500px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  margin-top: 4px;
+}
+
+.boasVindasBoxCompacta h2 {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+}
+
+.boasVindasBoxCompacta p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.homeModulosGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.cardCompacto {
+  min-height: 92px;
+  padding: 14px 10px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  font-size: 24px;
+}
+
+.cardCompacto h3 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+@media (max-width: 380px) {
+  .homeModulosGrid {
+    gap: 8px;
+  }
+
+  .cardCompacto {
+    min-height: 84px;
+    padding: 12px 8px;
+    font-size: 22px;
+  }
+
+  .cardCompacto h3 {
+    font-size: 13px;
+  }
+
+  .boasVindasBoxCompacta {
+    padding: 12px 14px;
+  }
+
+  .boasVindasBoxCompacta h2 {
+    font-size: 17px;
+  }
+
+  .boasVindasBoxCompacta p {
+    font-size: 13px;
+  }
 }

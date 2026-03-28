@@ -149,33 +149,27 @@ function abrirModulo(modulo) {
 
   // ================= HOME =================
   if (modulo === "home") {
-    area.innerHTML = `
+        area.innerHTML = `
       <div class="homeTela">
 
-        <img src="img/logo-metrica.png" class="logoHome">
-
-        <div class="boasVindasBox">
+        <div class="boasVindasBox boasVindasBoxCompacta">
           <h2>Painel Técnico</h2>
           <p>Olá, Técnico.<br>Estou aqui para facilitar o seu trabalho.</p>
-
-          <div class="barra-loading">
-            <div class="progresso-loading"></div>
-          </div>
         </div>
 
-        <div class="homeModulos">
-          <div class="card" onclick="abrirModulo('temperatura')">🌡<h3>Temperatura</h3></div>
-          <div class="card" onclick="abrirModulo('btu')">❄<h3>BTU ↔ W</h3></div>
-          <div class="card" onclick="abrirModulo('pressao')">📊<h3>Pressão</h3></div>
-          <div class="card" onclick="abrirModulo('eletrica')">⚡<h3>Elétrica</h3></div>
-          <div class="card" onclick="abrirModulo('deltaT')">📉<h3>Delta T</h3></div>
-          <div class="card" onclick="abrirModulo('superheat')">🔥<h3>Superheat</h3></div>
-          <div class="card" onclick="abrirModulo('subcool')">❄<h3>Subcool</h3></div>
-          <div class="card" onclick="abrirModulo('tempo')">⏱<h3>Tempo</h3></div>
-          <div class="card" onclick="abrirModulo('tabelaPT')">📘<h3>Tabela PT</h3></div>
-          <div class="card" onclick="abrirModulo('diagnostico')">🧠<h3>Diagnóstico</h3></div>
-          <div class="card" onclick="abrirModulo('diagnosticoAvancado')">🚀<h3>Diag. Avançado</h3></div>
-          <div class="card" onclick="abrirModulo('fluidos')">🧪<h3>Régua de Fluidos</h3></div>
+        <div class="homeModulos homeModulosGrid">
+          <div class="card cardCompacto" onclick="abrirModulo('temperatura')">🌡<h3>Temperatura</h3></div>
+          <div class="card cardCompacto" onclick="abrirModulo('btu')">❄<h3>BTU ↔ W</h3></div>
+          <div class="card cardCompacto" onclick="abrirModulo('pressao')">📊<h3>Pressão</h3></div>
+          <div class="card cardCompacto" onclick="abrirModulo('eletrica')">⚡<h3>Elétrica</h3></div>
+          <div class="card cardCompacto" onclick="abrirModulo('deltaT')">📉<h3>Delta T</h3></div>
+          <div class="card cardCompacto" onclick="abrirModulo('superheat')">🔥<h3>Superheat</h3></div>
+          <div class="card cardCompacto" onclick="abrirModulo('subcool')">❄<h3>Subcool</h3></div>
+          <div class="card cardCompacto" onclick="abrirModulo('tempo')">⏱<h3>Tempo</h3></div>
+          <div class="card cardCompacto" onclick="abrirModulo('tabelaPT')">📘<h3>Tabela PT</h3></div>
+          <div class="card cardCompacto" onclick="abrirModulo('diagnostico')">🧠<h3>Diagnóstico</h3></div>
+          <div class="card cardCompacto" onclick="abrirModulo('diagnosticoAvancado')">🚀<h3>Diag. Avançado</h3></div>
+          <div class="card cardCompacto" onclick="abrirModulo('fluidos')">🧪<h3>Régua de Fluidos</h3></div>
         </div>
 
       </div>
@@ -183,25 +177,29 @@ function abrirModulo(modulo) {
   }
 
    // ================= TEMPERATURA =================
-  else if (modulo === "temperatura") {
+    else if (modulo === "temperatura") {
     area.innerHTML = `
       <div class="moduloPadrao">
         <button onclick="abrirModulo('home')" class="btn-voltar">⬅</button>
         <h2 class="titulo-modulo">Temperatura</h2>
 
-        <div class="blocoTecnico">
-          <h3 class="tituloBlocoTecnico">Conversões de Temperatura</h3>
-          <p class="textoApoioBloco">
-            Digite um valor e escolha a conversão desejada.
-          </p>
+        <div class="blocoTecnico blocoTecnicoRolavel">
+          <div class="topoFixoBloco">
+            <h3 class="tituloBlocoTecnico">Conversões de Temperatura</h3>
+            <p class="textoApoioBloco">
+              Digite um valor e escolha a conversão desejada.
+            </p>
 
-          <div class="resultado" id="resultadoTemp">
-            O resultado aparecerá aqui
+            <div class="resultado" id="resultadoTemp">
+              O resultado aparecerá aqui
+            </div>
+
+            <div class="grupoInputFixo">
+              <input id="valorTemp" placeholder="Digite o valor">
+            </div>
           </div>
 
-          <div class="grupoInputs">
-            <input id="valorTemp" placeholder="Digite o valor">
-
+          <div class="acoesRolaveis">
             <div class="gridBotoes2">
               <button onclick="cParaF()">C → F</button>
               <button onclick="fParaC()">F → C</button>
@@ -282,7 +280,7 @@ function abrirModulo(modulo) {
   }
 
     // ================= PRESSÃO =================
-  else if (modulo === "pressao") {
+      else if (modulo === "pressao") {
     area.innerHTML = `
       <div class="moduloPadrao">
         <button onclick="abrirModulo('home')" class="btn-voltar">⬅</button>
@@ -298,26 +296,28 @@ function abrirModulo(modulo) {
           <div class="grupoInputs">
             <input id="valorPressao" placeholder="Digite o valor">
 
-            <button onclick="psiParaBar()">PSI → Bar</button>
-            <button onclick="barParaPsi()">Bar → PSI</button>
+            <div class="gridBotoes2">
+              <button onclick="psiParaBar()">PSI → Bar</button>
+              <button onclick="barParaPsi()">Bar → PSI</button>
 
-            <button onclick="psiParaKpa()">PSI → kPa</button>
-            <button onclick="kpaParaPsi()">kPa → PSI</button>
+              <button onclick="psiParaKpa()">PSI → kPa</button>
+              <button onclick="kpaParaPsi()">kPa → PSI</button>
 
-            <button onclick="psiParaMpa()">PSI → MPa</button>
-            <button onclick="mpaParaPsi()">MPa → PSI</button>
+              <button onclick="psiParaMpa()">PSI → MPa</button>
+              <button onclick="mpaParaPsi()">MPa → PSI</button>
 
-            <button onclick="psiParaKgf()">PSI → kgf/cm²</button>
-            <button onclick="kgfParaPsi()">kgf/cm² → PSI</button>
+              <button onclick="psiParaKgf()">PSI → kgf/cm²</button>
+              <button onclick="kgfParaPsi()">kgf/cm² → PSI</button>
 
-            <button onclick="barParaKpa()">Bar → kPa</button>
-            <button onclick="kpaParaBar()">kPa → Bar</button>
+              <button onclick="barParaKpa()">Bar → kPa</button>
+              <button onclick="kpaParaBar()">kPa → Bar</button>
 
-            <button onclick="barParaMpa()">Bar → MPa</button>
-            <button onclick="mpaParaBar()">MPa → Bar</button>
+              <button onclick="barParaMpa()">Bar → MPa</button>
+              <button onclick="mpaParaBar()">MPa → Bar</button>
 
-            <button onclick="barParaKgf()">Bar → kgf/cm²</button>
-            <button onclick="kgfParaBar()">kgf/cm² → Bar</button>
+              <button onclick="barParaKgf()">Bar → kgf/cm²</button>
+              <button onclick="kgfParaBar()">kgf/cm² → Bar</button>
+            </div>
           </div>
         </div>
 
@@ -331,14 +331,16 @@ function abrirModulo(modulo) {
           <div class="grupoInputs">
             <input id="valorVacuo" placeholder="Digite o valor de vácuo">
 
-            <button onclick="inhgParaMmhg()">inHg → mmHg</button>
-            <button onclick="mmhgParaInhg()">mmHg → inHg</button>
+            <div class="gridBotoes2">
+              <button onclick="inhgParaMmhg()">inHg → mmHg</button>
+              <button onclick="mmhgParaInhg()">mmHg → inHg</button>
 
-            <button onclick="inhgParaMicrons()">inHg → microns</button>
-            <button onclick="micronsParaInhg()">microns → inHg</button>
+              <button onclick="inhgParaMicrons()">inHg → microns</button>
+              <button onclick="micronsParaInhg()">microns → inHg</button>
 
-            <button onclick="mmhgParaMicrons()">mmHg → microns</button>
-            <button onclick="micronsParaMmhg()">microns → mmHg</button>
+              <button onclick="mmhgParaMicrons()">mmHg → microns</button>
+              <button onclick="micronsParaMmhg()">microns → mmHg</button>
+            </div>
           </div>
         </div>
       </div>
