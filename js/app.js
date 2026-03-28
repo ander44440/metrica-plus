@@ -161,6 +161,8 @@ function abrirModulo(modulo) {
           <div class="card cardCompacto" onclick="abrirModulo('temperatura')">🌡<h3>Temperatura</h3></div>
           <div class="card cardCompacto" onclick="abrirModulo('btu')">❄<h3>BTU ↔ W</h3></div>
           <div class="card cardCompacto" onclick="abrirModulo('pressao')">📊<h3>Pressão</h3></div>
+          <div class="card cardCompacto" onclick="abrirModulo('vazao')">💨<h3>Vazão</h3></div>
+          <div class="card cardCompacto" onclick="abrirModulo('conversor')">📏<h3>Métrico / IP</h3></div>
           <div class="card cardCompacto" onclick="abrirModulo('eletrica')">⚡<h3>Elétrica</h3></div>
           <div class="card cardCompacto" onclick="abrirModulo('deltaT')">📉<h3>Delta T</h3></div>
           <div class="card cardCompacto" onclick="abrirModulo('superheat')">🔥<h3>Superheat</h3></div>
@@ -369,6 +371,209 @@ function abrirModulo(modulo) {
     }, 0);
   }
 
+    // ================= VAZÃO =================
+  else if (modulo === "vazao") {
+    area.innerHTML = `
+      <div class="moduloPadrao">
+        <button onclick="abrirModulo('home')" class="btn-voltar">⬅</button>
+        <h2 class="titulo-modulo">Vazão</h2>
+
+        <div class="blocoTecnicoAzul">
+          <h3 class="tituloBlocoTecnicoAzul">Conversão de Vazão</h3>
+          <p class="textoApoioBloco">
+            Digite um valor e escolha a conversão entre L/min, L/h, m³/h e CFM.
+          </p>
+
+          <div class="resultado" id="resultadoVazao">
+            O resultado aparecerá aqui
+          </div>
+
+          <div class="grupoInputs">
+            <input id="valorVazao" placeholder="Digite o valor">
+
+            <div class="gridBotoes2">
+              <button onclick="lminParaLh()">L/min → L/h</button>
+              <button onclick="lhParaLmin()">L/h → L/min</button>
+
+              <button onclick="lminParaM3h()">L/min → m³/h</button>
+              <button onclick="m3hParaLmin()">m³/h → L/min</button>
+
+              <button onclick="lminParaCfm()">L/min → CFM</button>
+              <button onclick="cfmParaLmin()">CFM → L/min</button>
+
+              <button onclick="lhParaM3h()">L/h → m³/h</button>
+              <button onclick="m3hParaLh()">m³/h → L/h</button>
+
+              <button onclick="lhParaCfm()">L/h → CFM</button>
+              <button onclick="cfmParaLh()">CFM → L/h</button>
+
+              <button onclick="m3hParaCfm()">m³/h → CFM</button>
+              <button onclick="cfmParaM3h()">CFM → m³/h</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    setTimeout(() => {
+      const input = document.getElementById("valorVazao");
+
+      if (input) {
+        input.focus();
+        input.addEventListener("keypress", function(e) {
+          if (e.key === "Enter") {
+            lminParaLh();
+          }
+        });
+      }
+    }, 0);
+  }
+
+    // ================= CONVERSOR MÉTRICO / IP =================
+  else if (modulo === "conversor") {
+    area.innerHTML = `
+      <div class="moduloPadrao">
+        <button onclick="abrirModulo('home')" class="btn-voltar">⬅</button>
+        <h2 class="titulo-modulo">Métrico / IP ↔ SI</h2>
+
+        <div class="blocoTecnicoAzul">
+          <h3 class="tituloBlocoTecnicoAzul">Comprimento</h3>
+          <p class="textoApoioBloco">
+            Conversões entre milímetros, polegadas, metros e pés.
+          </p>
+
+          <div class="resultado" id="resultadoComprimento">
+            O resultado aparecerá aqui
+          </div>
+
+          <div class="grupoInputs">
+            <input id="valorComprimento" placeholder="Digite o valor">
+
+            <div class="gridBotoes2">
+              <button onclick="mmParaPol()">mm → pol</button>
+              <button onclick="polParaMm()">pol → mm</button>
+
+              <button onclick="mParaPes()">m → pés</button>
+              <button onclick="pesParaM()">pés → m</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="blocoTecnicoVerde">
+          <h3 class="tituloBlocoTecnicoVerde">Área</h3>
+          <p class="textoApoioBloco">
+            Conversões entre metro quadrado e pé quadrado.
+          </p>
+
+          <div class="resultado" id="resultadoArea">
+            O resultado aparecerá aqui
+          </div>
+
+          <div class="grupoInputs">
+            <input id="valorArea" placeholder="Digite o valor">
+
+            <div class="gridBotoes2">
+              <button onclick="m2ParaFt2()">m² → ft²</button>
+              <button onclick="ft2ParaM2()">ft² → m²</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="blocoTecnicoLaranja">
+          <h3 class="tituloBlocoTecnicoLaranja">Volume</h3>
+          <p class="textoApoioBloco">
+            Conversões entre litros, galão americano, metro cúbico e pé cúbico.
+          </p>
+
+          <div class="resultado" id="resultadoVolume">
+            O resultado aparecerá aqui
+          </div>
+
+          <div class="grupoInputs">
+            <input id="valorVolume" placeholder="Digite o valor">
+
+            <div class="gridBotoes2">
+              <button onclick="litrosParaGalao()">L → gal</button>
+              <button onclick="galaoParaLitros()">gal → L</button>
+
+              <button onclick="m3ParaFt3()">m³ → ft³</button>
+              <button onclick="ft3ParaM3()">ft³ → m³</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="blocoTecnicoRoxo">
+          <h3 class="tituloBlocoTecnicoRoxo">Massa</h3>
+          <p class="textoApoioBloco">
+            Conversões entre quilograma e libra.
+          </p>
+
+          <div class="resultado" id="resultadoMassa">
+            O resultado aparecerá aqui
+          </div>
+
+          <div class="grupoInputs">
+            <input id="valorMassa" placeholder="Digite o valor">
+
+            <div class="gridBotoes2">
+              <button onclick="kgParaLb()">kg → lb</button>
+              <button onclick="lbParaKg()">lb → kg</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    setTimeout(() => {
+      const comprimento = document.getElementById("valorComprimento");
+      const areaInput = document.getElementById("valorArea");
+      const volume = document.getElementById("valorVolume");
+      const massa = document.getElementById("valorMassa");
+
+      if (comprimento) comprimento.focus();
+
+      [comprimento].forEach(input => {
+        if (input) {
+          input.addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+              mmParaPol();
+            }
+          });
+        }
+      });
+
+      [areaInput].forEach(input => {
+        if (input) {
+          input.addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+              m2ParaFt2();
+            }
+          });
+        }
+      });
+
+      [volume].forEach(input => {
+        if (input) {
+          input.addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+              litrosParaGalao();
+            }
+          });
+        }
+      });
+
+      [massa].forEach(input => {
+        if (input) {
+          input.addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+              kgParaLb();
+            }
+          });
+        }
+      });
+    }, 0);
+  }
+
   // ================= ELÉTRICA =================
   else if (modulo === "eletrica") {
     area.innerHTML = `
@@ -422,7 +627,29 @@ function abrirModulo(modulo) {
             <button class="botaoDestaque" onclick="calcularCapacitancia()">Calcular Capacitância</button>
           </div>
         </div>
-      </div>
+        <div class="blocoTecnicoAzul">
+  <h3 class="tituloBlocoTecnicoAzul">Consumo Elétrico</h3>
+  <p class="textoApoioBloco">
+    Calcule o consumo mensal e o custo do equipamento.
+  </p>
+
+  <div class="resultado" id="resultadoConsumo">
+    O resultado aparecerá aqui
+  </div>
+
+  <div class="grupoInputs">
+    <div class="gridInputs2">
+      <input id="potenciaConsumo" placeholder="Potência (W)">
+      <input id="horasConsumo" placeholder="Horas/dia">
+
+      <input id="diasConsumo" placeholder="Dias/mês">
+      <input id="tarifaConsumo" placeholder="Tarifa (R$/kWh)">
+    </div>
+
+    <button class="botaoDestaque" onclick="calcularConsumo()">Calcular Consumo</button>
+   </div>
+  </div>
+</div>
     `;
 
     setTimeout(() => {

@@ -550,3 +550,219 @@ function micronsParaMmhg() {
   const convertido = valor / 1000;
   mostrarResultadoVacuo(`${valor} microns = <strong>${convertido.toFixed(3)} mmHg</strong>`);
 }
+
+// ================= VAZÃO =================
+
+function obterValorVazao() {
+  let v = parseFloat(document.getElementById("valorVazao").value);
+  let res = document.getElementById("resultadoVazao");
+
+  if (isNaN(v)) {
+    if (res) res.innerHTML = "Digite um valor.";
+    return null;
+  }
+
+  return v;
+}
+
+function lminParaLh() {
+  let v = obterValorVazao();
+  if (v === null) return;
+  document.getElementById("resultadoVazao").innerHTML = `${v.toFixed(2)} L/min = <strong>${(v * 60).toFixed(2)} L/h</strong>`;
+}
+
+function lhParaLmin() {
+  let v = obterValorVazao();
+  if (v === null) return;
+  document.getElementById("resultadoVazao").innerHTML = `${v.toFixed(2)} L/h = <strong>${(v / 60).toFixed(2)} L/min</strong>`;
+}
+
+function lminParaM3h() {
+  let v = obterValorVazao();
+  if (v === null) return;
+  document.getElementById("resultadoVazao").innerHTML = `${v.toFixed(2)} L/min = <strong>${(v * 0.06).toFixed(3)} m³/h</strong>`;
+}
+
+function m3hParaLmin() {
+  let v = obterValorVazao();
+  if (v === null) return;
+  document.getElementById("resultadoVazao").innerHTML = `${v.toFixed(3)} m³/h = <strong>${(v / 0.06).toFixed(2)} L/min</strong>`;
+}
+
+function lminParaCfm() {
+  let v = obterValorVazao();
+  if (v === null) return;
+  document.getElementById("resultadoVazao").innerHTML = `${v.toFixed(2)} L/min = <strong>${(v * 0.0353147).toFixed(3)} CFM</strong>`;
+}
+
+function cfmParaLmin() {
+  let v = obterValorVazao();
+  if (v === null) return;
+  document.getElementById("resultadoVazao").innerHTML = `${v.toFixed(3)} CFM = <strong>${(v / 0.0353147).toFixed(2)} L/min</strong>`;
+}
+
+function lhParaM3h() {
+  let v = obterValorVazao();
+  if (v === null) return;
+  document.getElementById("resultadoVazao").innerHTML = `${v.toFixed(2)} L/h = <strong>${(v / 1000).toFixed(3)} m³/h</strong>`;
+}
+
+function m3hParaLh() {
+  let v = obterValorVazao();
+  if (v === null) return;
+  document.getElementById("resultadoVazao").innerHTML = `${v.toFixed(3)} m³/h = <strong>${(v * 1000).toFixed(2)} L/h</strong>`;
+}
+
+function lhParaCfm() {
+  let v = obterValorVazao();
+  if (v === null) return;
+  document.getElementById("resultadoVazao").innerHTML = `${v.toFixed(2)} L/h = <strong>${(v * 0.000588578).toFixed(3)} CFM</strong>`;
+}
+
+function cfmParaLh() {
+  let v = obterValorVazao();
+  if (v === null) return;
+  document.getElementById("resultadoVazao").innerHTML = `${v.toFixed(3)} CFM = <strong>${(v / 0.000588578).toFixed(2)} L/h</strong>`;
+}
+
+function m3hParaCfm() {
+  let v = obterValorVazao();
+  if (v === null) return;
+  document.getElementById("resultadoVazao").innerHTML = `${v.toFixed(3)} m³/h = <strong>${(v * 0.588578).toFixed(3)} CFM</strong>`;
+}
+
+function cfmParaM3h() {
+  let v = obterValorVazao();
+  if (v === null) return;
+  document.getElementById("resultadoVazao").innerHTML = `${v.toFixed(3)} CFM = <strong>${(v / 0.588578).toFixed(3)} m³/h</strong>`;
+}
+
+// ================= MÉTRICO / IP ↔ SI =================
+
+// ===== COMPRIMENTO =====
+
+function obterValorComprimento() {
+  let v = parseFloat(document.getElementById("valorComprimento").value);
+  let res = document.getElementById("resultadoComprimento");
+
+  if (isNaN(v)) {
+    if (res) res.innerHTML = "Digite um valor.";
+    return null;
+  }
+
+  return v;
+}
+
+function mmParaPol() {
+  let v = obterValorComprimento();
+  if (v === null) return;
+  document.getElementById("resultadoComprimento").innerHTML = `${v.toFixed(2)} mm = <strong>${(v / 25.4).toFixed(4)} pol</strong>`;
+}
+
+function polParaMm() {
+  let v = obterValorComprimento();
+  if (v === null) return;
+  document.getElementById("resultadoComprimento").innerHTML = `${v.toFixed(4)} pol = <strong>${(v * 25.4).toFixed(2)} mm</strong>`;
+}
+
+function mParaPes() {
+  let v = obterValorComprimento();
+  if (v === null) return;
+  document.getElementById("resultadoComprimento").innerHTML = `${v.toFixed(2)} m = <strong>${(v * 3.28084).toFixed(4)} pés</strong>`;
+}
+
+function pesParaM() {
+  let v = obterValorComprimento();
+  if (v === null) return;
+  document.getElementById("resultadoComprimento").innerHTML = `${v.toFixed(4)} pés = <strong>${(v / 3.28084).toFixed(4)} m</strong>`;
+}
+
+// ===== ÁREA =====
+
+function obterValorArea() {
+  let v = parseFloat(document.getElementById("valorArea").value);
+  let res = document.getElementById("resultadoArea");
+
+  if (isNaN(v)) {
+    if (res) res.innerHTML = "Digite um valor.";
+    return null;
+  }
+
+  return v;
+}
+
+function m2ParaFt2() {
+  let v = obterValorArea();
+  if (v === null) return;
+  document.getElementById("resultadoArea").innerHTML = `${v.toFixed(2)} m² = <strong>${(v * 10.7639).toFixed(4)} ft²</strong>`;
+}
+
+function ft2ParaM2() {
+  let v = obterValorArea();
+  if (v === null) return;
+  document.getElementById("resultadoArea").innerHTML = `${v.toFixed(4)} ft² = <strong>${(v / 10.7639).toFixed(4)} m²</strong>`;
+}
+
+// ===== VOLUME =====
+
+function obterValorVolume() {
+  let v = parseFloat(document.getElementById("valorVolume").value);
+  let res = document.getElementById("resultadoVolume");
+
+  if (isNaN(v)) {
+    if (res) res.innerHTML = "Digite um valor.";
+    return null;
+  }
+
+  return v;
+}
+
+function litrosParaGalao() {
+  let v = obterValorVolume();
+  if (v === null) return;
+  document.getElementById("resultadoVolume").innerHTML = `${v.toFixed(2)} L = <strong>${(v / 3.78541).toFixed(4)} gal</strong>`;
+}
+
+function galaoParaLitros() {
+  let v = obterValorVolume();
+  if (v === null) return;
+  document.getElementById("resultadoVolume").innerHTML = `${v.toFixed(4)} gal = <strong>${(v * 3.78541).toFixed(2)} L</strong>`;
+}
+
+function m3ParaFt3() {
+  let v = obterValorVolume();
+  if (v === null) return;
+  document.getElementById("resultadoVolume").innerHTML = `${v.toFixed(3)} m³ = <strong>${(v * 35.3147).toFixed(4)} ft³</strong>`;
+}
+
+function ft3ParaM3() {
+  let v = obterValorVolume();
+  if (v === null) return;
+  document.getElementById("resultadoVolume").innerHTML = `${v.toFixed(4)} ft³ = <strong>${(v / 35.3147).toFixed(4)} m³</strong>`;
+}
+
+// ===== MASSA =====
+
+function obterValorMassa() {
+  let v = parseFloat(document.getElementById("valorMassa").value);
+  let res = document.getElementById("resultadoMassa");
+
+  if (isNaN(v)) {
+    if (res) res.innerHTML = "Digite um valor.";
+    return null;
+  }
+
+  return v;
+}
+
+function kgParaLb() {
+  let v = obterValorMassa();
+  if (v === null) return;
+  document.getElementById("resultadoMassa").innerHTML = `${v.toFixed(2)} kg = <strong>${(v * 2.20462).toFixed(4)} lb</strong>`;
+}
+
+function lbParaKg() {
+  let v = obterValorMassa();
+  if (v === null) return;
+  document.getElementById("resultadoMassa").innerHTML = `${v.toFixed(4)} lb = <strong>${(v / 2.20462).toFixed(4)} kg</strong>`;
+}

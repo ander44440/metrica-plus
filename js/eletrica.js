@@ -126,3 +126,25 @@ function calcularCapacitancia() {
         Capacitância equivalente: ${resultado.toFixed(2)} µF
     `;
 }
+
+function calcularConsumo() {
+  let p = parseFloat(document.getElementById("potenciaConsumo").value);
+  let h = parseFloat(document.getElementById("horasConsumo").value);
+  let d = parseFloat(document.getElementById("diasConsumo").value);
+  let t = parseFloat(document.getElementById("tarifaConsumo").value);
+
+  let res = document.getElementById("resultadoConsumo");
+
+  if (!p || !h || !d || !t) {
+    res.innerHTML = "Preencha todos os valores.";
+    return;
+  }
+
+  let consumo = (p * h * d) / 1000;
+  let custo = consumo * t;
+
+  res.innerHTML = `
+    Consumo: <strong>${consumo.toFixed(2)} kWh/mês</strong><br>
+    Custo: <strong>R$ ${custo.toFixed(2)}</strong>
+  `;
+}
