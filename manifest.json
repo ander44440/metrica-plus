@@ -1,11 +1,11 @@
 {
   "name": "Métrica+ Ferramentas Técnicas",
-  "short_name": "Metrica+",
-  "start_url": "./",
+  "short_name": "Métrica+",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#0b1a2b",
-  "theme_color": "#2b2a7e",
+  "theme_color": "#0d1633",
   "orientation": "portrait",
   "icons": [
     {
