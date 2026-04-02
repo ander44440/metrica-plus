@@ -128,22 +128,60 @@ function calcularCapacitancia() {
 }
 
 function calcularConsumo() {
-  let p = parseFloat(document.getElementById("potenciaConsumo").value);
-  let h = parseFloat(document.getElementById("horasConsumo").value);
-  let d = parseFloat(document.getElementById("diasConsumo").value);
-  let t = parseFloat(document.getElementById("tarifaConsumo").value);
+  const campoPotencia = document.getElementById("potenciaConsumo");
+  const campoHoras = document.getElementById("horasConsumo");
+  const campoDias = document.getElementById("diasConsumo");
+  const campoTarifa = document.getElementById("tarifaConsumo");
+  const res = document.getElementById("resultadoConsumo");
 
-  let res = document.getElementById("resultadoConsumo");
+  if (!campoPotencia || !campoHoras || !campoDias || !campoTarifa || !res) {
+    console.log("Erro: campos do módulo de consumo não encontrados.");
+    return;
+  }
 
-  if (!p || !h || !d || !t) {
+  function normalizarNumero(valor) {
+    return String(valor).trim().replace(/\s+/g, "").replace(",", ".");
+  }
+
+  const pStr = normalizarNumero(campoPotencia.value);
+  const hStr = normalizarNumero(campoHoras.value);
+  const dStr = normalizarNumero(campoDias.value);
+  const tStr = normalizarNumero(campoTarifa.value);
+
+  if (pStr === "" || hStr === "" || dStr === "" || tStr === "") {
     res.innerHTML = "Preencha todos os valores.";
     return;
   }
 
-  let consumo = (p * h * d) / 1000;
-  let custo = consumo * t;
+  const p = Number(pStr);
+  const h = Number(hStr);
+  const d = Number(dStr);
+  const t = Number(tStr);
+
+  if (Number.isNaN(p) || Number.isNaN(h) || Number.isNaN(d) || Number.isNaN(t)) {
+    res.innerHTML = "Valor inválido.";
+    return;
+  }
+
+  if (p <= 0 || h <= 0 || d <= 0 || t <= 0) {
+    res.innerHTML = "Os valores devem ser maiores que zero.";
+    return;
+  }
+
+  const consumo = (p * h * d) / 1000;
+  const custo = consumo * t;
+
+  if (!Number.isFinite(consumo) || !Number.isFinite(custo)) {
+    res.innerHTML = "Não foi possível calcular. Verifique os dados informados.";
+    return;
+  }
 
   res.innerHTML = `
+    <strong>Resultado:</strong><br>
+    Potência: ${p.toFixed(2)} W<br>
+    Uso diário: ${h.toFixed(2)} h<br>
+    Dias no mês: ${d.toFixed(0)}<br>
+    Tarifa: R$ ${t.toFixed(2)}/kWh<br>
     Consumo: <strong>${consumo.toFixed(2)} kWh/mês</strong><br>
     Custo: <strong>R$ ${custo.toFixed(2)}</strong>
   `;
