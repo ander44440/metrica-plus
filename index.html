@@ -13,6 +13,18 @@
 <body>
 
   <!-- TOPO MOBILE -->
+     <!-- SPLASH SCREEN -->
+  <div id="splashScreen" class="splashScreen">
+    <div class="splashConteudo">
+      <div class="logoSplashWrap">
+        <img src="img/logo-metrica.png" alt="Métrica+" class="logoSplash">
+        <span class="brilhoLogo"></span>
+      </div>
+
+      <p class="textoSplash">Técnico, seja bem-vindo ao Métrica+</p>
+    </div>
+  </div>
+  
   <header class="topoMobile">
     <button class="btnMenuTopo" onclick="abrirMenuLateral()">
       <i class="fa-solid fa-bars"></i>
@@ -26,9 +38,10 @@
       </div>
     </div>
 
-    <button class="btnTopoDireita">
-      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+    <button class="btnTopoDireita btnLimpar" onclick="limparModuloAtual()">
+      <i class="fa-solid fa-eraser"></i>
     </button>
+
   </header>
 
   <!-- OVERLAY -->

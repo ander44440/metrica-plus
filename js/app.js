@@ -1059,7 +1059,44 @@ function abrirModulo(modulo) {
 }
 
 // ===== INICIALIZAÇÃO =====
+// ===== INICIALIZAÇÃO =====
 window.onload = () => {
   fecharMenuLateral();
-  abrirModulo("home");
 };
+
+function limparModuloAtual() {
+  const modulo = document.getElementById("modulo");
+
+  if (!modulo) return;
+
+  // limpa todos os inputs
+  const inputs = modulo.querySelectorAll("input");
+  inputs.forEach(input => input.value = "");
+
+  // limpa selects (se houver)
+  const selects = modulo.querySelectorAll("select");
+  selects.forEach(select => select.selectedIndex = 0);
+
+  // limpa resultados
+  const resultados = modulo.querySelectorAll(
+    "#resultadoTemp, #resultadoBTU, #resultadoPressao, #resultadoVazao, #resultadoTempo, #resultadoDeltaT, #resultadoSuperheat, #resultadoSubcool, #resultadoPT, #resultadoDiagnostico, #resultadoAvancado, #resultadoCapacitancia, #resultadoConsumo"
+  );
+
+  resultados.forEach(r => {
+    if (r) r.innerHTML = "";
+  });
+}
+
+// ===== ABERTURA INICIAL COM SPLASH =====
+
+document.addEventListener("DOMContentLoaded", function () {
+  const splash = document.getElementById("splashScreen");
+
+  setTimeout(function () {
+    if (splash) {
+      splash.classList.add("oculta");
+    }
+
+    abrirModulo("home");
+  }, 5000);
+});
