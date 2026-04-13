@@ -17,7 +17,6 @@ function cParaF() {
   let F = (C * 9 / 5) + 32;
 
   res.innerHTML = `
-    <strong>Conversão:</strong><br>
     ${C.toFixed(2)} °C = ${F.toFixed(2)} °F
   `;
 }
