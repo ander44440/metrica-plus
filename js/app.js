@@ -150,13 +150,17 @@ function abrirModulo(modulo) {
   // ================= HOME =================
   if (modulo === "home") {
         area.innerHTML = `
-      <div class="homeTela">
+      <div class="boasVindasBox boasVindasBoxCompacta">
+        <h2>Ferramentas Inteligentes para Técnicos em Campo</h2>
 
-        <div class="boasVindasBox boasVindasBoxCompacta">
-          <h2>Painel Técnico</h2>
-          <p>Olá, Técnico.<br>Estou aqui para facilitar o seu trabalho.</p>
+        <p>
+          Agilidade, precisão e suporte técnico no dia a dia da manutenção.
+        </p>
+
+        <div class="badgeOffline">
+          🟢 Offline pronto para uso
         </div>
-
+      </div>
         <div class="homeModulos homeModulosGrid">
           <div class="card cardCompacto" onclick="abrirModulo('temperatura')">🌡<h3>Temperatura</h3></div>
           <div class="card cardCompacto" onclick="abrirModulo('btu')">❄<h3>BTU ↔ W</h3></div>
