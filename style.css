@@ -131,7 +131,7 @@ body {
 }
 
 .card {
-  background: linear-gradient(180deg, #0f2447 0%, #0a1933 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #0a1933 100%);
   color: white;
   padding: 24px 16px;
   border-radius: 18px;
@@ -224,11 +224,12 @@ select {
 }
 
 button {
+  margin-top:16px !important;
   padding: 14px;
   border-radius: 10px;
   border: none;
-  background: #2a6743;
-  color: white;
+  background: #ffffffbf;
+  color: #0d1633;
   font-weight: bold;
   min-height: 48px;
   cursor: pointer;
@@ -236,7 +237,7 @@ button {
 }
 
 button:hover {
-  background: #3ab378;
+  background: #c0c3c2;
 }
 
 .btn-voltar {
@@ -873,16 +874,25 @@ input {
   margin-top: 4px;
 }
 
-.cardCompacto {
-  min-height: 92px;
-  padding: 14px 10px;
-  border-radius: 14px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  font-size: 16px;
+.card.cardCompacto{
+  position:relative;
+  overflow:hidden;
+  border-radius:16px;
+  padding:18px 12px;
+  background:
+    linear-gradient(180deg,#eef2f7 0%,#d8dde6 34%,#0a2455 100%);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.14);
+
+  box-shadow:
+    0 10px 18px rgba(0,0,0,.16),
+    0 3px 6px rgba(0,0,0,.10),
+    inset 0 1px 0 rgba(255,255,255,.45);
+
+  transition:
+    transform .20s ease,
+    box-shadow .20s ease,
+    background .20s ease;
 }
 
 .cardCompacto h3 {
@@ -1033,3 +1043,183 @@ input {
     opacity: 0.2;
   }
 }
+
+/* ==================================================
+PASSO 6A REAL — classes corretas do MÉTRICA+
+colar NO FINAL do CSS
+================================================== */
+
+/* cards reais */
+.card.cardCompacto{
+  position:relative;
+  overflow:hidden;
+  border-radius:16px;
+  background:linear-gradient(180deg,#f1f4f8,#d8dde6 38%,#0a2455 100%);
+  color:#ffffff;
+  box-shadow:
+    0 8px 18px rgba(0,0,0,.18),
+    inset 0 1px 0 rgba(255,255,255,.55);
+  transition:all .22s ease;
+  border:1px solid rgba(255,255,255,.18);
+}
+
+/* título */
+.card.cardCompacto h3{
+  margin:10px 0 0;
+  color:#ffffff;
+  font-size:15px;
+  font-weight:700;
+  line-height:1.2;
+  letter-spacing:.25px;
+  text-shadow:0 1px 2px rgba(0,0,0,.22);
+}
+
+/* hover premium */
+.card.cardCompacto:hover{
+  transform:translateY(-5px) scale(1.015);
+
+  background:
+    linear-gradient(180deg,#0b4ea2 0%,#05357a 45%,#001f52 100%);
+
+  box-shadow:
+    0 18px 30px rgba(0,0,0,.24),
+    0 0 22px rgba(0,140,255,.45),
+    0 6px 12px rgba(0,70,180,.18),
+    inset 0 1px 0 rgba(255,255,255,.18);
+
+  cursor:pointer;
+}s
+
+/* brilho passando */
+.card.cardCompacto:hover::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-60%;
+  width:40%;
+  height:100%;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.30),
+    transparent
+  );
+  transform:skewX(-25deg);
+  animation:shineMetrica .65s linear;
+}
+
+@keyframes shineMetrica{
+  to{ left:130%; }
+}
+
+/* clique mobile */
+.card.cardCompacto:active{
+  transform:scale(.98);
+}
+
+/* brilho abaixo do topo/banner (caso exista hero) */
+.hero::after,
+.banner::after,
+.topoBox::after{
+  content:"";
+  position:absolute;
+  left:12%;
+  right:12%;
+  bottom:-8px;
+  height:14px;
+  border-radius:50%;
+  background:rgba(0,140,255,.28);
+  filter:blur(10px);
+}
+
+.banner,
+.topo,
+.topbar,
+/* PASSO P5 — SUBSTITUIR bloco do topo/header
+Procure no CSS:
+
+header { ... }
+ou
+.topbar { ... }
+
+e troque por isso:
+*/
+
+header,
+.topbar{
+  min-height:78px;
+  padding:10px 18px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+
+  background:linear-gradient(90deg,#00163f,#00285f,#00163f);
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,.22);
+}
+
+/* MOBILE */
+@media (max-width:480px){
+
+  header,
+  .topbar{
+    min-height:70px;
+    padding:8px 14px;
+    gap:10px;
+  }
+}
+
+.hero::after,
+.banner::after,
+.topo::after,
+.topbar::after,
+header::after{
+  content:"";
+  position:absolute;
+  left:12%;
+  right:12%;
+  bottom:-10px;
+  height:16px;
+  border-radius:50%;
+
+  background:rgba(0,140,255,.22);
+  filter:blur(14px);
+
+  pointer-events:none;
+}body{
+  background:
+    radial-gradient(circle at top center, rgba(255,255,255,.28), transparent 32%),
+    linear-gradient(180deg,#c7ccd3 0%,#b8bec6 48%,#aeb5bd 100%);
+  background-attachment:fixed;
+}
+
+/* caso exista container principal */
+main,
+.home,
+.app,
+#app{
+  position:relative;
+}
+
+main::before,
+.home::before,
+.app::before,
+#app::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.06),
+      transparent 30%,
+      transparent 70%,
+      rgba(255,255,255,.04)
+    );
+}
+

@@ -148,39 +148,47 @@ function abrirModulo(modulo) {
   
 
   // ================= HOME =================
-  if (modulo === "home") {
-        area.innerHTML = `
-      <div class="boasVindasBox boasVindasBoxCompacta">
-        <h2>Ferramentas Inteligentes para Técnicos em Campo</h2>
+ if (modulo === "home") {
+  area.innerHTML = `
+    <div class="boasVindasBox boasVindasBoxCompacta">
+      <h2>Ferramentas Inteligentes para Técnicos em Campo</h2>
 
-        <p>
-          Agilidade, precisão e suporte técnico no dia a dia da manutenção.
-        </p>
+      <p>Agilidade, precisão e suporte técnico no dia a dia.</p>
 
-        <div class="badgeOffline">
-          🟢 Offline pronto para uso
-        </div>
+      <div class="badgeOffline">🟢 Offline pronto para uso</div>
+    </div>
+
+    <div class="homeSecaoTitulo">Mais Usadas</div>
+
+    <div class="homeModulos homeModulosGrid">
+      <div class="card cardCompacto" onclick="abrirModulo('pressao')">📊<h3>Pressão</h3></div>
+      <div class="card cardCompacto" onclick="abrirModulo('eletrica')">⚡<h3>Elétrica</h3></div>
+      <div class="card cardCompacto" onclick="abrirModulo('tabelaPT')">📘<h3>Tabela PT</h3></div>
+      <div class="card cardCompacto" onclick="abrirModulo('diagnostico')">🧠<h3>Diagnóstico</h3></div>
+    </div>
+
+    <button class="btnVerTodas" onclick="toggleFerramentas()">
+      Ver Todas Ferramentas
+    </button>
+
+    <div id="listaFerramentasExtra" style="display:none;">
+      <div class="homeSecaoTitulo">Todas Ferramentas</div>
+
+      <div class="homeModulos homeModulosGrid">
+        <div class="card cardCompacto" onclick="abrirModulo('temperatura')">🌡<h3>Temperatura</h3></div>
+        <div class="card cardCompacto" onclick="abrirModulo('btu')">❄<h3>BTU ↔ W</h3></div>
+        <div class="card cardCompacto" onclick="abrirModulo('vazao')">💨<h3>Vazão</h3></div>
+        <div class="card cardCompacto" onclick="abrirModulo('conversor')">📏<h3>Métrico / IP</h3></div>
+        <div class="card cardCompacto" onclick="abrirModulo('deltaT')">📉<h3>Delta T</h3></div>
+        <div class="card cardCompacto" onclick="abrirModulo('superheat')">🔥<h3>Superheat</h3></div>
+        <div class="card cardCompacto" onclick="abrirModulo('subcool')">❄<h3>Subcool</h3></div>
+        <div class="card cardCompacto" onclick="abrirModulo('tempo')">⏱<h3>Tempo</h3></div>
+        <div class="card cardCompacto" onclick="abrirModulo('diagnosticoAvancado')">🚀<h3>Avançado</h3></div>
+        <div class="card cardCompacto" onclick="abrirModulo('fluidos')">🧪<h3>Fluidos</h3></div>
       </div>
-        <div class="homeModulos homeModulosGrid">
-          <div class="card cardCompacto" onclick="abrirModulo('temperatura')">🌡<h3>Temperatura</h3></div>
-          <div class="card cardCompacto" onclick="abrirModulo('btu')">❄<h3>BTU ↔ W</h3></div>
-          <div class="card cardCompacto" onclick="abrirModulo('pressao')">📊<h3>Pressão</h3></div>
-          <div class="card cardCompacto" onclick="abrirModulo('vazao')">💨<h3>Vazão</h3></div>
-          <div class="card cardCompacto" onclick="abrirModulo('conversor')">📏<h3>Métrico / IP</h3></div>
-          <div class="card cardCompacto" onclick="abrirModulo('eletrica')">⚡<h3>Elétrica</h3></div>
-          <div class="card cardCompacto" onclick="abrirModulo('deltaT')">📉<h3>Delta T</h3></div>
-          <div class="card cardCompacto" onclick="abrirModulo('superheat')">🔥<h3>Superheat</h3></div>
-          <div class="card cardCompacto" onclick="abrirModulo('subcool')">❄<h3>Subcool</h3></div>
-          <div class="card cardCompacto" onclick="abrirModulo('tempo')">⏱<h3>Tempo</h3></div>
-          <div class="card cardCompacto" onclick="abrirModulo('tabelaPT')">📘<h3>Tabela PT</h3></div>
-          <div class="card cardCompacto" onclick="abrirModulo('diagnostico')">🧠<h3>Diagnóstico</h3></div>
-          <div class="card cardCompacto" onclick="abrirModulo('diagnosticoAvancado')">🚀<h3>Diag. Avançado</h3></div>
-          <div class="card cardCompacto" onclick="abrirModulo('fluidos')">🧪<h3>Régua de Fluidos</h3></div>
-        </div>
-
-      </div>
-    `;
-  }
+    </div>
+  `;
+}
 
    // ================= TEMPERATURA =================
     else if (modulo === "temperatura") {
@@ -1102,5 +1110,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     abrirModulo("home");
-  }, 5000);
+  }, 3000);
 });
+
+function toggleFerramentas() {
+  const lista = document.getElementById("listaFerramentasExtra");
+
+  if (!lista) return;
+
+  lista.style.display =
+    lista.style.display === "none" ? "block" : "none";
+}

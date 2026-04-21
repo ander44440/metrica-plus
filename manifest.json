@@ -1,11 +1,11 @@
+
 {
-  "name": "Métrica+ Ferramentas Técnicas",
-  "short_name": "Métrica+",
-  "start_url": "./index.html",
-  "scope": "./",
+  "name": "Métrica+ HVAC Tools Brasil",
+  "short_name": "Métrica+ HVAC",
+  "start_url": "./",
   "display": "standalone",
-  "background_color": "#0b1a2b",
-  "theme_color": "#0d1633",
+  "background_color": "#0a2455",
+  "theme_color": "#0a2455",
   "orientation": "portrait",
   "icons": [
     {
